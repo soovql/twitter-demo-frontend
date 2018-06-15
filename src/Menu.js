@@ -17,7 +17,6 @@ const FollowNav = styled.div``;
 const NavMenuMore = styled.button`
   outline: none;
   border: none;
-  margin-left: 18px;
 `;
 const StatisticsNav = styled.ul`
   text-align: center;

@@ -4,6 +4,9 @@ import tick from "./img/Tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
 import TwitterCardItem from "./TweetCard.js";
 import { Button } from "./Buttons";
+import IconJoined from "./img/Icon_Joined.svg";
+import IconLink from "./img/Icon_Link.svg";
+import IconLocation from "./img/Icon_Location.svg";
 
 const UserInfo = styled.div`
   margin-top: 30px;
@@ -28,9 +31,20 @@ const UserInfoDescription = styled.p`
   color: 14171a;
 `;
 
-const UserInfoMore = styled.ul``;
-const UserInfoMoreItem = styled.li``;
+const UserInfoMore = styled.ul`
+  padding: 0;
+`;
+const UserInfoMoreItem = styled.li`
+  list-style: none;
+  font-size: 14px;
+  color: #657786;
+  line-height: 28px;
+  display: flex;
+`;
 
+const UserInfoMoreItemContent = styled.div`
+  padding-left: 6px;
+`;
 const TwitterFeed = styled.div`
   margin-top: 8px;
 `;
@@ -69,9 +83,22 @@ const PageContainer = props => (
             is how can we make things *work* amazing.{" "}
           </UserInfoDescription>
           <UserInfoMore>
-            <UserInfoMoreItem />
-            <UserInfoMoreItem />
-            <UserInfoMoreItem />
+            <UserInfoMoreItem>
+              <img src={IconLocation} />
+              <UserInfoMoreItemContent>London, UK </UserInfoMoreItemContent>
+            </UserInfoMoreItem>
+            <UserInfoMoreItem>
+              <img src={IconLink} />
+              <UserInfoMoreItemContent>
+                everyinteraction.com{" "}
+              </UserInfoMoreItemContent>
+            </UserInfoMoreItem>
+            <UserInfoMoreItem>
+              <img src={IconJoined} />
+              <UserInfoMoreItemContent>
+                Joined May 2008{" "}
+              </UserInfoMoreItemContent>
+            </UserInfoMoreItem>
           </UserInfoMore>
           <Button primary>Tweet to</Button>
           <Button primary>Message</Button>

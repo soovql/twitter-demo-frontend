@@ -13,6 +13,7 @@ const NavBar = styled.div`
   justify-content: space-around;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 6px 0;
+  background: #fff;
 `;
 
 const IconBox = styled.div`

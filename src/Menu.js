@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "./Buttons";
+import avatarHuge from "./img/EIAvatar.png";
 
 const MenuBar = styled.div`
   background-color: #fff;
@@ -49,6 +50,12 @@ const StatisticsItem = styled.li`
   &:hover ${StatisticsItemCount} {
     color: #1da1f2;
   }
+  &:first-child {
+    border-bottom: 2px solid #1da1f2;
+  }
+  &:first-child ${StatisticsItemCount} {
+    color: #1da1f2;
+  }
 `;
 
 class Menu extends React.Component {
@@ -57,7 +64,7 @@ class Menu extends React.Component {
       <MenuBar>
         <MenuNav>
           <StatisticsNav>
-            <StatisticsItem hover={true}>
+            <StatisticsItem>
               <StatisticsItemName>Tweets</StatisticsItemName>
               <StatisticsItemCount>8,058</StatisticsItemCount>
             </StatisticsItem>

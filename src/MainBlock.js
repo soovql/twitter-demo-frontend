@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import tick from "./img/Tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
@@ -63,7 +64,10 @@ const FeedTabsItem = styled.li`
   font-weight: bold;
   padding-right: 30px;
   &:active {
-    font-size: #000;
+    color: #000;
+  }
+  &:first-child {
+    color: #000;
   }
 `;
 
@@ -75,12 +79,10 @@ const PageContainer = props => (
           <UserInfoName>Every Interaction</UserInfoName>
           <img src={tick} title="Verified account" alt="Approved User Tick" />
 
-          <UserInfoNickname>
-            <a href="https://twitter.com/EveryInteract">@EveryInteract</a>
-          </UserInfoNickname>
+          <UserInfoNickname>@EveryInteract</UserInfoNickname>
           <UserInfoDescription>
             UX Design studio focussed problem solving creativity. Design to us
-            is how can we make things *work* amazing.{" "}
+            is how can we make things *work* amazing.
           </UserInfoDescription>
           <UserInfoMore>
             <UserInfoMoreItem>
@@ -90,14 +92,12 @@ const PageContainer = props => (
             <UserInfoMoreItem>
               <img src={IconLink} />
               <UserInfoMoreItemContent>
-                everyinteraction.com{" "}
+                everyinteraction.com
               </UserInfoMoreItemContent>
             </UserInfoMoreItem>
             <UserInfoMoreItem>
               <img src={IconJoined} />
-              <UserInfoMoreItemContent>
-                Joined May 2008{" "}
-              </UserInfoMoreItemContent>
+              <UserInfoMoreItemContent>Joined May 2008</UserInfoMoreItemContent>
             </UserInfoMoreItem>
           </UserInfoMore>
           <Button primary>Tweet to</Button>

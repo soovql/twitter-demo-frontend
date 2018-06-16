@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import bgImg from "./img/CoverImage.png";
-
 const HeaderImage = styled.div`
-  background-image: url(${bgImg});
+  background-image: url(${process.env.PUBLIC_URL + "/img/CoverImage.png"});
   background-size: cover;
   min-height: 300px;
 `;

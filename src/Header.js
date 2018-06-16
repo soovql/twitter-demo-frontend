@@ -7,7 +7,6 @@ import iconNotifications from "./img/Icon_Notifications.svg";
 import iconMessages from "./img/Icon_Messages.svg";
 import twitterLogo from "./img/Icon_TwitterLogo.svg";
 import iconMagnifier from "./img/Icon_Magnifier.svg";
-import avatarSmall from "./img/Avatar.png";
 
 const NavBar = styled.div`
   display: flex;
@@ -154,7 +153,10 @@ class Header extends React.Component {
           </SearchBox>
           <UserAvatarSmall>
             <a href="/profile" title="Profile and Settings">
-              <img src={avatarSmall} alt="Small User Avatar" />
+              <img
+                src={process.env.PUBLIC_URL + "/img/profile_image_small.png"}
+                alt="Small User Avatar"
+              />
             </a>
           </UserAvatarSmall>
           <ButtonTweet>Tweet</ButtonTweet>

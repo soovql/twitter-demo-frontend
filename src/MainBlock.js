@@ -8,7 +8,6 @@ import { Button } from "./Buttons";
 import IconJoined from "./img/Icon_Joined.svg";
 import IconLink from "./img/Icon_Link.svg";
 import IconLocation from "./img/Icon_Location.svg";
-import AvatarHuge from "./img/EIAvatar.png";
 
 const UserInfo = styled.div`
   margin-top: 30px;
@@ -38,7 +37,7 @@ const ExtrasBlock = styled.ul`
   padding: 0;
 `;
 const Avatar = styled.img`
-  background: url(${AvatarHuge});
+  background: url(${process.env.PUBLIC_URL + "/img/profile_image.png"});
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: contain;

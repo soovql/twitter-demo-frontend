@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import { Button } from "./Buttons";
-
 import IconMore from "./img/Icon_More.png";
-import { height, width } from "window-size";
 
 const MenuWrap = styled.div`
   background: #fff;

@@ -8,6 +8,7 @@ const MenuWrap = styled.div`
   background: #fff;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 8px;
 `;
 const MenuNav = styled.div`
   padding-top: 9px;

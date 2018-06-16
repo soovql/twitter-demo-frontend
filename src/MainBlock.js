@@ -37,7 +37,7 @@ const ExtrasBlock = styled.ul`
   padding: 0;
 `;
 const Avatar = styled.img`
-  background: url(${process.env.PUBLIC_URL + "/img/profile_image.png"});
+  background-image: url(${process.env.PUBLIC_URL + "/img/profile_image.png"});
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -60,12 +60,11 @@ const ExtrasInfo = styled.li`
 const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
-const TwitterFeed = styled.div`
-  margin-top: 8px;
-`;
+
 const FeedTab = styled.ul`
   background-color: #fff;
   padding: 20px 20px 10px;
+  margin-top: 8px;
   margin: 0 auto;
   border-bottom: 1px solid lightgrey;
 `;
@@ -122,18 +121,16 @@ const PageContainer = props => (
         </UserInfo>
       </Col>
       <Col sm={6}>
-        <TwitterFeed>
-          <Router>
-            <FeedTab>
-              <Tab to="/EveryInteraction" exact={true}>
-                Tweets
-              </Tab>
-              <Tab to="/with_replies">Tweets & Replies</Tab>
-              <Tab to="/media">Media</Tab>
-            </FeedTab>
-          </Router>
-          <TwitterCard />
-        </TwitterFeed>
+        <Router>
+          <FeedTab>
+            <Tab to="/EveryInteraction" exact={true}>
+              Tweets
+            </Tab>
+            <Tab to="/with_replies">Tweets & Replies</Tab>
+            <Tab to="/media">Media</Tab>
+          </FeedTab>
+        </Router>
+        <TwitterCard />
       </Col>
     </Row>
   </Grid>

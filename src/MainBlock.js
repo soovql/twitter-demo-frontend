@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import tick from "./img/Tick.png";
+import TickIcon from "./img/Tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
-import TwitterCardItem from "./TweetCard.js";
+import TwitterCard from "./TweetCard.js";
 import { Button } from "./Buttons";
 import IconJoined from "./img/Icon_Joined.svg";
 import IconLink from "./img/Icon_Link.svg";
@@ -12,7 +12,7 @@ import IconLocation from "./img/Icon_Location.svg";
 const UserInfo = styled.div`
   margin-top: 30px;
 `;
-const UserInfoName = styled.div`
+const Name = styled.div`
   color: #14171a;
   font-size: 22px;
   line-height: 22px;
@@ -21,21 +21,21 @@ const UserInfoName = styled.div`
   padding-right: 6px;
 `;
 
-const UserInfoNickname = styled.div`
+const Nickname = styled.div`
   color: #697787;
   font-size: 14px;
   line-height: 21px;
 `;
-const UserInfoDescription = styled.p`
+const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
   color: 14171a;
 `;
 
-const UserInfoMore = styled.ul`
+const ExtrasBlock = styled.ul`
   padding: 0;
 `;
-const UserInfoMoreItem = styled.li`
+const ExtrasInfo = styled.li`
   list-style: none;
   font-size: 14px;
   color: #657786;
@@ -49,24 +49,21 @@ const UserInfoMoreItemContent = styled.div`
 const TwitterFeed = styled.div`
   margin-top: 8px;
 `;
-const FeedTabs = styled.ul`
+const FeedTab = styled.ul`
   background-color: #fff;
   padding: 20px 20px 10px;
   margin: 0 auto;
   border-bottom: 1px solid lightgrey;
 `;
 
-const FeedTabsItem = styled.li`
+const Tab = styled.li`
   display: inline-block;
   list-style: none;
   color: #1da1f2;
   font-size: 20px;
   font-weight: bold;
   padding-right: 30px;
-  &:active {
-    color: #000;
-  }
-  &:first-child {
+  &.active {
     color: #000;
   }
 `;
@@ -76,42 +73,46 @@ const PageContainer = props => (
     <Row>
       <Col sm={3}>
         <UserInfo>
-          <UserInfoName>Every Interaction</UserInfoName>
-          <img src={tick} title="Verified account" alt="Approved User Tick" />
+          <Name>Every Interaction</Name>
+          <img
+            src={TickIcon}
+            title="Verified account"
+            alt="Approved User Tick"
+          />
 
-          <UserInfoNickname>@EveryInteract</UserInfoNickname>
-          <UserInfoDescription>
+          <Nickname>@EveryInteract</Nickname>
+          <Description>
             UX Design studio focussed problem solving creativity. Design to us
             is how can we make things *work* amazing.
-          </UserInfoDescription>
-          <UserInfoMore>
-            <UserInfoMoreItem>
+          </Description>
+          <ExtrasBlock>
+            <ExtrasInfo>
               <img src={IconLocation} />
               <UserInfoMoreItemContent>London, UK </UserInfoMoreItemContent>
-            </UserInfoMoreItem>
-            <UserInfoMoreItem>
+            </ExtrasInfo>
+            <ExtrasInfo>
               <img src={IconLink} />
               <UserInfoMoreItemContent>
                 everyinteraction.com
               </UserInfoMoreItemContent>
-            </UserInfoMoreItem>
-            <UserInfoMoreItem>
+            </ExtrasInfo>
+            <ExtrasInfo>
               <img src={IconJoined} />
               <UserInfoMoreItemContent>Joined May 2008</UserInfoMoreItemContent>
-            </UserInfoMoreItem>
-          </UserInfoMore>
+            </ExtrasInfo>
+          </ExtrasBlock>
           <Button primary>Tweet to</Button>
           <Button primary>Message</Button>
         </UserInfo>
       </Col>
       <Col sm={6}>
         <TwitterFeed>
-          <FeedTabs>
-            <FeedTabsItem>Tweets </FeedTabsItem>
-            <FeedTabsItem>Tweets & Replies</FeedTabsItem>
-            <FeedTabsItem>Media</FeedTabsItem>
-          </FeedTabs>
-          <TwitterCardItem />
+          <FeedTab>
+            <Tab>Tweets </Tab>
+            <Tab>Tweets & Replies</Tab>
+            <Tab>Media</Tab>
+          </FeedTab>
+          <TwitterCard />
         </TwitterFeed>
       </Col>
       <Col sm={3} />

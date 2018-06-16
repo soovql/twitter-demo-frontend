@@ -8,9 +8,11 @@ import { Button } from "./Buttons";
 import IconJoined from "./img/Icon_Joined.svg";
 import IconLink from "./img/Icon_Link.svg";
 import IconLocation from "./img/Icon_Location.svg";
+import AvatarHuge from "./img/EIAvatar.png";
 
 const UserInfo = styled.div`
   margin-top: 30px;
+  position: relative;
 `;
 const Name = styled.div`
   color: #14171a;
@@ -34,6 +36,18 @@ const Description = styled.p`
 
 const ExtrasBlock = styled.ul`
   padding: 0;
+`;
+const Avatar = styled.img`
+  background: url(${AvatarHuge});
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 172px;
+  width: 172px;
+  position: absolute;
+  z-index: 2;
+  left: 5%;
+  top: -67%;
 `;
 
 const ExtrasInfo = styled.li`
@@ -74,13 +88,13 @@ const PageContainer = props => (
     <Row>
       <Col sm={3}>
         <UserInfo>
+          <Avatar />
           <Name>Every Interaction</Name>
           <img
             src={TickIcon}
             title="Verified account"
             alt="Approved User Tick"
           />
-
           <Nickname>@EveryInteract</Nickname>
           <Description>
             UX Design studio focussed problem solving creativity. Design to us
@@ -114,7 +128,6 @@ const PageContainer = props => (
           <TwitterCard />
         </TwitterFeed>
       </Col>
-      <Col sm={3} />
     </Row>
   </Grid>
 );

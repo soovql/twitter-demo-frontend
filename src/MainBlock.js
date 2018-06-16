@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import TickIcon from "./img/Tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
@@ -71,15 +71,19 @@ const FeedTab = styled.ul`
   border-bottom: 1px solid lightgrey;
 `;
 
-const Tab = styled.li`
+const Tab = styled(NavLink)`
   display: inline-block;
   list-style: none;
   color: #1da1f2;
   font-size: 20px;
   font-weight: bold;
   padding-right: 30px;
+  text-decoration: none;
   &.active {
     color: #000;
+  }
+  &:hover:not(.active) {
+    text-decoration: underline;
   }
 `;
 
@@ -120,11 +124,15 @@ const PageContainer = props => (
       </Col>
       <Col sm={6}>
         <TwitterFeed>
-          <FeedTab>
-            <Tab>Tweets </Tab>
-            <Tab>Tweets & Replies</Tab>
-            <Tab>Media</Tab>
-          </FeedTab>
+          <Router>
+            <FeedTab>
+              <Tab to="/EveryInteraction" exact={true}>
+                Tweets
+              </Tab>
+              <Tab to="/with_replies">Tweets & Replies</Tab>
+              <Tab to="/media">Media</Tab>
+            </FeedTab>
+          </Router>
           <TwitterCard />
         </TwitterFeed>
       </Col>

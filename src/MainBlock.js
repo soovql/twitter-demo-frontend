@@ -35,6 +35,7 @@ const Description = styled.p`
 const ExtrasBlock = styled.ul`
   padding: 0;
 `;
+
 const ExtrasInfo = styled.li`
   list-style: none;
   font-size: 14px;
@@ -43,7 +44,7 @@ const ExtrasInfo = styled.li`
   display: flex;
 `;
 
-const UserInfoMoreItemContent = styled.div`
+const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
 const TwitterFeed = styled.div`
@@ -88,17 +89,15 @@ const PageContainer = props => (
           <ExtrasBlock>
             <ExtrasInfo>
               <img src={IconLocation} />
-              <UserInfoMoreItemContent>London, UK </UserInfoMoreItemContent>
+              <ExtrasContent>London, UK </ExtrasContent>
             </ExtrasInfo>
             <ExtrasInfo>
               <img src={IconLink} />
-              <UserInfoMoreItemContent>
-                everyinteraction.com
-              </UserInfoMoreItemContent>
+              <ExtrasContent>everyinteraction.com</ExtrasContent>
             </ExtrasInfo>
             <ExtrasInfo>
               <img src={IconJoined} />
-              <UserInfoMoreItemContent>Joined May 2008</UserInfoMoreItemContent>
+              <ExtrasContent>Joined May 2008</ExtrasContent>
             </ExtrasInfo>
           </ExtrasBlock>
           <Button primary>Tweet to</Button>

@@ -138,31 +138,26 @@ const Navigation = () => (
   </Router>
 );
 
-class Header extends React.Component {
-  render() {
-    return (
-      <NavBar>
-        <Navigation />
-        <TwitterIcon>
-          <img src={twitterLogo} alt="Twitter Logo" />
-        </TwitterIcon>
-        <UserBox>
-          <SearchBox>
-            <Input type="text" placeholder="Search Twitter" />
-            <Button />
-          </SearchBox>
-          <UserAvatarSmall>
-            <a href="/profile" title="Profile and Settings">
-              <img
-                src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
-                alt="Small User Avatar"
-              />
-            </a>
-          </UserAvatarSmall>
-          <ButtonTweet>Tweet</ButtonTweet>
-        </UserBox>
-      </NavBar>
-    );
-  }
-}
-export default Header;
+export const Header = props => (
+  <NavBar>
+    <Navigation />
+    <TwitterIcon>
+      <img src={twitterLogo} alt="Twitter Logo" />
+    </TwitterIcon>
+    <UserBox>
+      <SearchBox>
+        <Input type="text" placeholder="Search Twitter" />
+        <Button />
+      </SearchBox>
+      <UserAvatarSmall>
+        <a href="/profile" title="Profile and Settings">
+          <img
+            src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
+            alt="Small User Avatar"
+          />
+        </a>
+      </UserAvatarSmall>
+      <ButtonTweet>Tweet</ButtonTweet>
+    </UserBox>
+  </NavBar>
+);

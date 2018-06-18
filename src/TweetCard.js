@@ -32,10 +32,7 @@ const SmallUserpic = styled.div`
   width: 32px;
   margin: 20px 0 0 10px;
 `;
-const PinnedWrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const PinnedWrap = styled.div``;
 const PinnedImage = styled.div``;
 const PinnedText = styled.p`
   color: 707e88;
@@ -56,6 +53,12 @@ class TwitterCard extends React.Component {
     return (
       <Feed>
         <Card>
+          <PinnedWrap>
+            <PinnedImage>
+              <img src={iconPinned} alt="Pinned Tweet Icon" />
+            </PinnedImage>
+            <PinnedText>Pinned Tweet</PinnedText>
+          </PinnedWrap>
           <SmallUserpic>
             <img
               src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
@@ -63,13 +66,6 @@ class TwitterCard extends React.Component {
             />
           </SmallUserpic>
           <BlockWrap>
-            <PinnedWrap>
-              <PinnedImage>
-                <img src={iconPinned} alt="Pinned Tweet Icon" />
-              </PinnedImage>
-              <PinnedText>Pinned Tweet</PinnedText>
-            </PinnedWrap>
-
             <Author>Every Interaction</Author>
             <AuthorNickname>@EveryInteraction</AuthorNickname>
             <Post>

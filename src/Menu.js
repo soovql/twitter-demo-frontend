@@ -96,20 +96,14 @@ const StatisticsNav = () => (
   </Router>
 );
 
-class Menu extends React.Component {
-  render() {
-    return (
-      <MenuWrap>
-        <MenuNav>
-          <StatisticsNav />
-          <FollowNav>
-            <Button>Follow</Button>
-            <ActionButton />
-          </FollowNav>
-        </MenuNav>
-      </MenuWrap>
-    );
-  }
-}
-
-export default Menu;
+export const Menu = props => (
+  <MenuWrap>
+    <MenuNav>
+      <StatisticsNav />
+      <FollowNav>
+        <Button>Follow</Button>
+        <ActionButton />
+      </FollowNav>
+    </MenuNav>
+  </MenuWrap>
+);

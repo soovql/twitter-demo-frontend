@@ -85,7 +85,7 @@ const Tab = styled(NavLink)`
   }
 `;
 
-const PageContainer = props => (
+export const MainContainer = props => (
   <Grid>
     <Row>
       <Col sm={3}>
@@ -135,10 +135,3 @@ const PageContainer = props => (
     </Row>
   </Grid>
 );
-
-class MainContainer extends React.Component {
-  render() {
-    return <PageContainer />;
-  }
-}
-export default MainContainer;

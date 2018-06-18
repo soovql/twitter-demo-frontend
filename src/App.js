@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MainContainer from "./MainBlock";
 import Header from "./Header";
-import HeaderImage from "./HeaderImage";
+import { HeaderImage } from "./HeaderImage";
 import Menu from "./Menu";
 import { Helmet } from "react-helmet";
 import {

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import iconHome from "./img/Icon_Home.svg";
-import iconMoments from "./img/Icon_Moments.svg";
-import iconNotifications from "./img/Icon_Notifications.svg";
-import iconMessages from "./img/Icon_Messages.svg";
-import twitterLogo from "./img/Icon_TwitterLogo.svg";
-import iconMagnifier from "./img/Icon_Magnifier.svg";
+import iconHome from "./icons/home.svg";
+import iconMoments from "./icons/moments.svg";
+import iconNotifications from "./icons/notifications.svg";
+import iconMessages from "./icons/messages.svg";
+import twitterLogo from "./icons/logo.svg";
+import iconMagnifier from "./icons/magnifier.svg";
 
 const NavBar = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const IconTitle = styled.div`
+const TitleIcon = styled.div`
   padding: 0 15px 0 6px;
 `;
 
@@ -117,22 +117,22 @@ const Navigation = () => (
     <IconBox>
       <StyledLink to="/EveryInteraction" exact={true}>
         <img src={iconHome} alt="Icon Home" />
-        <IconTitle>Home</IconTitle>
+        <TitleIcon>Home</TitleIcon>
       </StyledLink>
 
       <StyledLink to="/moments">
         <img src={iconMoments} alt="Icon Home" />
-        <IconTitle> Moments</IconTitle>{" "}
+        <TitleIcon> Moments</TitleIcon>{" "}
       </StyledLink>
 
       <StyledLink to="/notifications">
         <img src={iconNotifications} alt="Icon Notifications" />{" "}
-        <IconTitle>Notifications</IconTitle>{" "}
+        <TitleIcon>Notifications</TitleIcon>{" "}
       </StyledLink>
 
       <StyledLink to="/messages">
         <img src={iconMessages} alt="Icon Messages" />
-        <IconTitle> Messages</IconTitle>{" "}
+        <TitleIcon> Messages</TitleIcon>{" "}
       </StyledLink>
     </IconBox>
   </Router>
@@ -154,7 +154,7 @@ class Header extends React.Component {
           <UserAvatarSmall>
             <a href="/profile" title="Profile and Settings">
               <img
-                src={process.env.PUBLIC_URL + "/img/profile_image_small.png"}
+                src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
                 alt="Small User Avatar"
               />
             </a>

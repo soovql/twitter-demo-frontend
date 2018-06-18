@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import TickIcon from "./img/Tick.png";
+import iconTick from "./icons/tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
-import TwitterCard from "./TweetCard.js";
+import TwitterCard from "./TweetCard";
 import { Button } from "./Buttons";
-import IconJoined from "./img/Icon_Joined.svg";
-import IconLink from "./img/Icon_Link.svg";
-import IconLocation from "./img/Icon_Location.svg";
+import iconJoined from "./icons/joined.svg";
+import iconLink from "./icons/link.svg";
+import iconLocation from "./icons/location.svg";
 
 const UserInfo = styled.div`
   margin-top: 30px;
@@ -37,7 +37,7 @@ const ExtrasBlock = styled.ul`
   padding: 0;
 `;
 const Avatar = styled.img`
-  background-image: url(${process.env.PUBLIC_URL + "/img/profile_image.png"});
+  background-image: url(${process.env.PUBLIC_URL + "/img/avatar.png"});
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -93,7 +93,7 @@ const PageContainer = props => (
           <Avatar />
           <Name>Every Interaction</Name>
           <img
-            src={TickIcon}
+            src={iconTick}
             title="Verified account"
             alt="Approved User Tick"
           />
@@ -104,15 +104,15 @@ const PageContainer = props => (
           </Description>
           <ExtrasBlock>
             <ExtrasInfo>
-              <img src={IconLocation} />
+              <img src={iconLocation} />
               <ExtrasContent>London, UK </ExtrasContent>
             </ExtrasInfo>
             <ExtrasInfo>
-              <img src={IconLink} />
+              <img src={iconLink} />
               <ExtrasContent>everyinteraction.com</ExtrasContent>
             </ExtrasInfo>
             <ExtrasInfo>
-              <img src={IconJoined} />
+              <img src={iconJoined} />
               <ExtrasContent>Joined May 2008</ExtrasContent>
             </ExtrasInfo>
           </ExtrasBlock>

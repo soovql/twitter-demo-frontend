@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import { Button } from "./Buttons";
-import IconMore from "./img/Icon_More.png";
+import iconMore from "./icons/more.png";
 
 const MenuWrap = styled.div`
   background: #fff;
@@ -20,15 +20,11 @@ const MenuNav = styled.div`
 
 const FollowNav = styled.div``;
 const ActionButton = styled.div`
-  background-image: url(${IconMore});
+  background-image: url(${iconMore});
   background-repeat: no-repeat;
   width: 14px;
   height: 14px;
   display: inline-block;
-`;
-const NavMenuMore = styled.button`
-  outline: none;
-  border: none;
 `;
 const Wrap = styled.ul`
   text-align: center;

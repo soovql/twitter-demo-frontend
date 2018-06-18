@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import iconPinned from "./img/Icon_Pinned.svg";
+import iconPinned from "./icons/pinned.svg";
 
 const BlockWrap = styled.div`
   padding: 10px 10px 10px 20px;
@@ -58,7 +58,7 @@ class TwitterCard extends React.Component {
         <Card>
           <SmallUserpic>
             <img
-              src={process.env.PUBLIC_URL + "/img/profile_image_small.png"}
+              src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
               alt="user picture"
             />
           </SmallUserpic>
@@ -88,7 +88,7 @@ class TwitterCard extends React.Component {
         <Card>
           <SmallUserpic>
             <img
-              src={process.env.PUBLIC_URL + "/img/profile_image_small.png"}
+              src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
               alt="user picture"
             />
           </SmallUserpic>
@@ -104,7 +104,7 @@ class TwitterCard extends React.Component {
         <Card>
           <SmallUserpic>
             <img
-              src={process.env.PUBLIC_URL + "/img/profile_image_small.png"}
+              src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
               alt="user picture"
             />
           </SmallUserpic>

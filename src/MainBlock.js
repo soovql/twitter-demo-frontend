@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import iconTick from "./icons/tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
-import TwitterCard from "./TweetCard";
+import { Feed } from "./TwitterFeed";
 import { Button } from "./Buttons";
 import iconJoined from "./icons/joined.svg";
 import iconLink from "./icons/link.svg";
@@ -63,7 +63,7 @@ const ExtrasContent = styled.div`
 
 const FeedTab = styled.ul`
   background-color: #fff;
-  padding: 20px 20px 10px;
+  padding: 20px 15px 10px;
   margin-top: 8px;
   margin: 0 auto;
   border-bottom: 1px solid lightgrey;
@@ -130,7 +130,7 @@ export const MainContainer = props => (
             <Tab to="/media">Media</Tab>
           </FeedTab>
         </Router>
-        <TwitterCard />
+        <Feed />
       </Col>
     </Row>
   </Grid>

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import iconPinned from "./icons/pinned.svg";
-import commentIcon from "./icons/comments.png";
-import retweetIcon from "./icons/retweet.png";
-import likeIcon from "./icons/like.png";
-import directMessageIcon from "./icons/envelope.png";
+import iconPinned from "./pinned.svg";
+import commentIcon from "./comments.png";
+import retweetIcon from "./retweet.png";
+import likeIcon from "./like.png";
+import directMessageIcon from "./envelope.png";
 
 const BlockWrap = styled.div`
   display: flex;

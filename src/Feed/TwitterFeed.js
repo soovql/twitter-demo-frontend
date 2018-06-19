@@ -18,7 +18,7 @@ export const Feed = props => (
         authorNickname="@EveryInteract"
         timeTweeted="• 2 Mar 2015"
         postText="We’ve made some more resources for all you wonderful #design folk everyinteraction.com/resources/ #webdesign #UI"
-        userImage={process.env.PUBLIC_URL + "/img/content_01.png"}
+        userImage={process.env.PUBLIC_URL + "/img/content/content_01.png"}
         countReposts="17"
         countLikes="47"
       />
@@ -38,7 +38,7 @@ export const Feed = props => (
         authorNickname="@EveryInteract"
         timeTweeted="• Nov 18"
         postText="Variable web fonts are coming, and will open a world of opportunities for weight use online"
-        imgPreview={process.env.PUBLIC_URL + "/img/preview_01.png"}
+        imgPreview={process.env.PUBLIC_URL + "/img/content/preview_01.png"}
         previewBox={true}
         titlePreview="The Future of Web Fonts"
         textPreview="We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re…

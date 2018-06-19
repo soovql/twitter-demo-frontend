@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
-import { Button } from "./Buttons";
+import { NavLink } from "react-router-dom";
+import { Button } from "./Button";
 import iconMore from "./icons/more.png";
 
 const MenuWrap = styled.div`
@@ -66,37 +66,35 @@ const StyledLink = styled(NavLink)`
 `;
 
 const StatisticsNav = () => (
-  <Router>
-    <Wrap>
-      <StyledLink to="/EveryInteraction" exact={true}>
-        <Name>Tweets</Name>
-        <Count>8,058</Count>
-      </StyledLink>
+  <Wrap>
+    <StyledLink to="/EveryInteraction" exact={true}>
+      <Name>Tweets</Name>
+      <Count>8,058</Count>
+    </StyledLink>
 
-      <StyledLink to="/following">
-        <Name>Following</Name>
-        <Count>721</Count>
-      </StyledLink>
+    <StyledLink to="/following">
+      <Name>Following</Name>
+      <Count>721</Count>
+    </StyledLink>
 
-      <StyledLink to="/followers">
-        <Name>Followers</Name>
-        <Count>1,815</Count>
-      </StyledLink>
+    <StyledLink to="/followers">
+      <Name>Followers</Name>
+      <Count>1,815</Count>
+    </StyledLink>
 
-      <StyledLink to="/likes">
-        <Name>Likes</Name>
-        <Count>460</Count>
-      </StyledLink>
+    <StyledLink to="/likes">
+      <Name>Likes</Name>
+      <Count>460</Count>
+    </StyledLink>
 
-      <StyledLink to="/lists">
-        <Name>Lists</Name>
-        <Count>2</Count>
-      </StyledLink>
-    </Wrap>
-  </Router>
+    <StyledLink to="/lists">
+      <Name>Lists</Name>
+      <Count>2</Count>
+    </StyledLink>
+  </Wrap>
 );
 
-export const Menu = props => (
+export const Menu = () => (
   <MenuWrap>
     <MenuNav>
       <StatisticsNav />

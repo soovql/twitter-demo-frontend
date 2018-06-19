@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import iconHome from "./icons/home.svg";
 import iconMoments from "./icons/moments.svg";
@@ -113,29 +113,27 @@ const ButtonTweet = styled.button`
   }
 `;
 const Navigation = () => (
-  <Router>
-    <IconBox>
-      <StyledLink to="/EveryInteraction" exact={true}>
-        <img src={iconHome} alt="Icon Home" />
-        <TitleIcon>Home</TitleIcon>
-      </StyledLink>
+  <IconBox>
+    <StyledLink to="/EveryInteraction" exact={true}>
+      <img src={iconHome} alt="Icon Home" />
+      <TitleIcon>Home</TitleIcon>
+    </StyledLink>
 
-      <StyledLink to="/moments">
-        <img src={iconMoments} alt="Icon Home" />
-        <TitleIcon> Moments</TitleIcon>{" "}
-      </StyledLink>
+    <StyledLink to="/moments">
+      <img src={iconMoments} alt="Icon Home" />
+      <TitleIcon> Moments</TitleIcon>{" "}
+    </StyledLink>
 
-      <StyledLink to="/notifications">
-        <img src={iconNotifications} alt="Icon Notifications" />{" "}
-        <TitleIcon>Notifications</TitleIcon>{" "}
-      </StyledLink>
+    <StyledLink to="/notifications">
+      <img src={iconNotifications} alt="Icon Notifications" />{" "}
+      <TitleIcon>Notifications</TitleIcon>{" "}
+    </StyledLink>
 
-      <StyledLink to="/messages">
-        <img src={iconMessages} alt="Icon Messages" />
-        <TitleIcon> Messages</TitleIcon>{" "}
-      </StyledLink>
-    </IconBox>
-  </Router>
+    <StyledLink to="/messages">
+      <img src={iconMessages} alt="Icon Messages" />
+      <TitleIcon> Messages</TitleIcon>{" "}
+    </StyledLink>
+  </IconBox>
 );
 
 export const Header = props => (

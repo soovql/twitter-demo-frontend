@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import iconTick from "./icons/tick.png";
 import { Grid, Col, Row } from "react-flexbox-grid";
@@ -121,15 +121,14 @@ export const MainContainer = props => (
         </UserInfo>
       </Col>
       <Col sm={6}>
-        <Router>
-          <FeedTab>
-            <Tab to="/EveryInteraction" exact={true}>
-              Tweets
-            </Tab>
-            <Tab to="/with_replies">Tweets & Replies</Tab>
-            <Tab to="/media">Media</Tab>
-          </FeedTab>
-        </Router>
+        <FeedTab>
+          <Tab to="/EveryInteraction" exact={true}>
+            Tweets
+          </Tab>
+          <Tab to="/with_replies">Tweets & Replies</Tab>
+          <Tab to="/media">Media</Tab>
+        </FeedTab>
+
         <Feed />
       </Col>
     </Row>

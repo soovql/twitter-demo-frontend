@@ -37,7 +37,6 @@ const ExtrasBlock = styled.ul`
   padding: 0;
 `;
 const Avatar = styled.img`
-  background-image: url(${process.env.PUBLIC_URL + "/img/avatar.png"});
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -90,7 +89,7 @@ export const MainContainer = props => (
     <Row>
       <Col sm={3}>
         <UserInfo>
-          <Avatar />
+          <Avatar src={process.env.PUBLIC_URL + "/img/avatar.png"} />
           <Name>Every Interaction</Name>
           <img
             src={iconTick}

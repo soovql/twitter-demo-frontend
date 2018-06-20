@@ -69,15 +69,15 @@ export default function() {
       </Description>
       <ExtrasBlock>
         <ExtrasInfo>
-          <img src={iconLocation} />
+          <img src={iconLocation} alt="" />
           <ExtrasContent>London, UK </ExtrasContent>
         </ExtrasInfo>
         <ExtrasInfo>
-          <img src={iconLink} />
+          <img src={iconLink} alt="" />
           <ExtrasContent>everyinteraction.com</ExtrasContent>
         </ExtrasInfo>
         <ExtrasInfo>
-          <img src={iconJoined} />
+          <img src={iconJoined} alt="" />
           <ExtrasContent>Joined May 2008</ExtrasContent>
         </ExtrasInfo>
       </ExtrasBlock>

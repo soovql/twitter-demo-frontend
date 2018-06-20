@@ -36,28 +36,40 @@ export default function() {
       </TitleWrap>
       <CommonUsers>
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_1.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_1.png"
+          }
+          alt="userNickname1"
         />
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_2.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_2.png"
+          }
+          alt="userNickname2"
         />
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_3.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_3.png"
+          }
+          alt="userNickname3"
         />
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_4.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_4.png"
+          }
+          alt="userNickname4"
         />
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_5.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_5.png"
+          }
+          alt="userNickname5"
         />
         <CommonUser
-          userPic={process.env.PUBLIC_URL + "/img/user_avatars/follower_6.png"}
-          alt="userNickname"
+          userPic={
+            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_6.png"
+          }
+          alt="userNickname6"
         />
       </CommonUsers>
     </FollowersWrap>

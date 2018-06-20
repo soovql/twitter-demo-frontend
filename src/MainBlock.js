@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Grid, Col, Row } from "react-flexbox-grid";
 import { Feed } from "./Feed/TwitterFeed";
-import CommonUsers from "./Profile/CommonUsers";
-import Info from "./Profile/Info";
+import Profile from "./Profile";
+import Suggestions from "./Suggestions";
 
 const FeedTab = styled.ul`
   background-color: #fff;
@@ -29,15 +29,12 @@ const Tab = styled(NavLink)`
     text-decoration: underline;
   }
 `;
-const FollowersBlock = styled.div``;
+
 export const MainContainer = props => (
   <Grid>
     <Row>
       <Col sm={3}>
-        <Info />
-        <FollowersBlock>
-          <CommonUsers />
-        </FollowersBlock>
+        <Profile />
       </Col>
       <Col sm={6}>
         <FeedTab>
@@ -49,6 +46,9 @@ export const MainContainer = props => (
         </FeedTab>
 
         <Feed />
+      </Col>
+      <Col sm={3}>
+        <Suggestions />
       </Col>
     </Row>
   </Grid>

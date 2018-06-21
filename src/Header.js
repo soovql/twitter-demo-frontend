@@ -11,7 +11,6 @@ import iconMagnifier from "./icons/magnifier.svg";
 const NavBar = styled.div`
   display: flex;
   justify-content: space-around;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #fff;
 `;
 

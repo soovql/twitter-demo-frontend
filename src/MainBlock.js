@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import Suggestions from "./Suggestions";
 import CommonUsers from "./CommonUsers";
 import Trends from "./Trends";
+import About from "./About";
 
 const FeedTab = styled.ul`
   background-color: #fff;
@@ -53,6 +54,7 @@ export const MainContainer = props => (
       <Col sm={3}>
         <Suggestions />
         <Trends />
+        <About />
       </Col>
     </Row>
   </Grid>

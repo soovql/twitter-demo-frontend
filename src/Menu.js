@@ -1,24 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { Grid, Col, Row } from "react-flexbox-grid";
 import { Button } from "./Button";
 import iconMore from "./icons/more.png";
 
-const MenuWrap = styled.div`
-  background: #fff;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 8px;
-`;
 const MenuNav = styled.div`
   padding-top: 9px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-left: 21%;
+  margin-bottom: 8px;
+  background: #fff;
 `;
 
-const FollowNav = styled.div``;
+const FollowNav = styled.div`
+  text-align: right;
+`;
 const ActionButton = styled.div`
   background-image: url(${iconMore});
   background-repeat: no-repeat;
@@ -26,8 +21,7 @@ const ActionButton = styled.div`
   height: 14px;
   display: inline-block;
 `;
-const Wrap = styled.ul`
-  text-align: center;
+const Statistics = styled.ul`
   padding: 0;
   margin: 0;
 `;
@@ -65,43 +59,46 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const StatisticsNav = () => (
-  <Wrap>
-    <StyledLink to="/EveryInteraction" exact={true}>
-      <Name>Tweets</Name>
-      <Count>8,058</Count>
-    </StyledLink>
-
-    <StyledLink to="/following">
-      <Name>Following</Name>
-      <Count>721</Count>
-    </StyledLink>
-
-    <StyledLink to="/followers">
-      <Name>Followers</Name>
-      <Count>1,815</Count>
-    </StyledLink>
-
-    <StyledLink to="/likes">
-      <Name>Likes</Name>
-      <Count>460</Count>
-    </StyledLink>
-
-    <StyledLink to="/lists">
-      <Name>Lists</Name>
-      <Count>2</Count>
-    </StyledLink>
-  </Wrap>
-);
-
 export const Menu = () => (
-  <MenuWrap>
-    <MenuNav>
-      <StatisticsNav />
-      <FollowNav>
-        <Button>Follow</Button>
-        <ActionButton />
-      </FollowNav>
-    </MenuNav>
-  </MenuWrap>
+  <MenuNav>
+    <Grid>
+      <Row>
+        <Col sm={3} />
+        <Col sm={6}>
+          <Statistics>
+            <StyledLink to="/EveryInteraction" exact={true}>
+              <Name>Tweets</Name>
+              <Count>8,058</Count>
+            </StyledLink>
+
+            <StyledLink to="/following">
+              <Name>Following</Name>
+              <Count>721</Count>
+            </StyledLink>
+
+            <StyledLink to="/followers">
+              <Name>Followers</Name>
+              <Count>1,815</Count>
+            </StyledLink>
+
+            <StyledLink to="/likes">
+              <Name>Likes</Name>
+              <Count>460</Count>
+            </StyledLink>
+
+            <StyledLink to="/lists">
+              <Name>Lists</Name>
+              <Count>2</Count>
+            </StyledLink>
+          </Statistics>
+        </Col>
+        <Col sm={3}>
+          <FollowNav>
+            <Button>Follow</Button>
+            <ActionButton />
+          </FollowNav>
+        </Col>
+      </Row>
+    </Grid>
+  </MenuNav>
 );

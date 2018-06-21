@@ -12,6 +12,7 @@ const Name = styled(NavLink)`
   font-weight: bold;
   color: #333;
   text-decoration: none;
+  white-space: nowrap;
   &:hover {
     text-decoration: underline;
     color: #004287;
@@ -23,15 +24,18 @@ const IconDelete = styled.img`
   top: 17px;
 `;
 const NameWrap = styled.div`
-  width: 100%;
-  padding-left: 2px;
+  padding: 0 40px 9px 2px;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
 `;
 const NickName = styled.div`
   color: #657786;
   overflow: hidden;
+  padding-left: 2px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding-bottom: 9px;
 `;
 const ListItem = styled.div`
   padding-top: 10px;
@@ -42,7 +46,7 @@ const ListItem = styled.div`
 const Tick = styled.img`
   vertical-align: middle;
   padding: 0 2px 0 2px;
-  align-items: center;
+  align-self: center;
 `;
 const Wrap = styled.div`
   padding: 0 0 16px 10px;

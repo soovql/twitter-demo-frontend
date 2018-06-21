@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "../Button";
-import iconTick from "./tick.png";
-import iconDelete from "./delete.png";
+import iconTick from "./icons/tick.png";
+import iconDelete from "./icons/delete.png";
 
 const Avatar = styled.img`
   align-self: center;

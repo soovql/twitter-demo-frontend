@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import followersIcon from "./followers.png";
+import followersIcon from "./icons/followers.png";
 import { NavLink } from "react-router-dom";
 
 const FollowersWrap = styled.div`

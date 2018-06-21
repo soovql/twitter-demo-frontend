@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import iconTick from "./tick.png";
-import iconJoined from "./joined.svg";
-import iconLink from "./link.svg";
-import iconLocation from "./location.svg";
+import iconTick from "./icons/tick.png";
+import iconJoined from "./icons/joined.svg";
+import iconLink from "./icons/link.svg";
+import iconLocation from "./icons/location.svg";
 import { Button } from "../Button";
 
 const UserInfo = styled.div`

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Card from "./Card";
-import iconPeople from "./people.png";
+import iconPeople from "./icons/people.png";
 
 const TitleWrap = styled.div`
   display: flex;

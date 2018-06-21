@@ -5,6 +5,7 @@ import { Grid, Col, Row } from "react-flexbox-grid";
 import { Feed } from "./Feed/TwitterFeed";
 import Profile from "./Profile";
 import Suggestions from "./Suggestions";
+import CommonUsers from "./CommonUsers";
 
 const FeedTab = styled.ul`
   background-color: #fff;
@@ -35,6 +36,7 @@ export const MainContainer = props => (
     <Row>
       <Col sm={3}>
         <Profile />
+        <CommonUsers />
       </Col>
       <Col sm={6}>
         <FeedTab>

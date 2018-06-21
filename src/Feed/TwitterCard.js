@@ -24,7 +24,10 @@ const Nickname = styled.div`
   color: #788a98;
   font-weight: bold;
 `;
-const Post = styled.div``;
+const Post = styled.div`
+  font-size: 25px;
+  font-weight: lighter;
+`;
 
 const SmallUserpic = styled.img`
   border-radius: 50%;
@@ -77,7 +80,7 @@ const PreviewBox = styled.div`
 const PreviewTitle = styled.p`
   margin-bottom: 0;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
 `;
 const TextWrap = styled.div`
   display: flex;
@@ -133,9 +136,9 @@ const tweets = [
     name: "Every Interaction",
     nickname: "@EveryInteract",
     time: "• Nov 18",
-    post:
-      "Variable web fonts are coming, and will open a world of opportunities for weight use online",
     preview: {
+      p_description:
+        "Variable web fonts are coming, and will open a world of opportunities for weight use online",
       p_image: process.env.PUBLIC_URL + "/img/content/preview_01.png",
       p_title: "The Future of Web Fonts",
       p_text:
@@ -160,22 +163,27 @@ export default function GetTweets() {
           <Author>{tweet.name}</Author>
           <Nickname>{tweet.nickname}</Nickname>
           <TimeStamp>{tweet.time}</TimeStamp>
-          <Post>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: tweet.post
-              }}
-            />
-          </Post>
-          <UploadedImage src={tweet.image} alt="" />
+          {tweet.post && (
+            <Post>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: tweet.post
+                }}
+              />
+            </Post>
+          )}
+          {tweet.image && <UploadedImage src={tweet.image} alt="" />}
           {tweet.preview && (
-            <PreviewBox>
-              <PreviewImage src={tweet.preview.p_image} alt="" />
-              <TextWrap>
-                <PreviewTitle>{tweet.preview.p_title}</PreviewTitle>
-                <PreviewText>{tweet.preview.p_text}</PreviewText>
-              </TextWrap>
-            </PreviewBox>
+            <React.Fragment>
+              <PreviewText>{tweet.preview.p_description}</PreviewText>
+              <PreviewBox>
+                <PreviewImage src={tweet.preview.p_image} alt="" />
+                <TextWrap>
+                  <PreviewTitle>{tweet.preview.p_title}</PreviewTitle>
+                  <PreviewText>{tweet.preview.p_text}</PreviewText>
+                </TextWrap>
+              </PreviewBox>
+            </React.Fragment>
           )}
         </PostWrap>
       </BlockWrap>

@@ -112,7 +112,7 @@ const tweets = [
     image: process.env.PUBLIC_URL + "/img/content/content_01.png",
     time: "• 2 Mar 2015",
     post:
-      "We’ve made some more resources for all you wonderful #design folk everyinteraction.com/resources/ #webdesign #UI",
+      "We’ve made some more resources for all you wonderful <a href='#design' target='_blank'>#design</a> folk <a href='https://everyinteraction.com/resources/' target='_blank'>everyinteraction.com/resources/</a> <a href='#webdesign' target='_blank'>#webdesign</a> <a href='#ui' target='_blank'>#UI</div>",
     reposts: "17",
     likes: "47"
   },
@@ -122,10 +122,11 @@ const tweets = [
     nickname: "@EveryInteract",
     time: "• 23h",
     post:
-      "Our new website concept; Taking you from… @ Every Interaction instagram.com/p/BNFGrfhBP3M/",
+      "Our new website concept; Taking you from… @ Every Interaction <a href='https://instagram.com/p/BNFGrfhBP3M/' target='_blank'>instagram.com/p/BNFGrfhBP3M/</a>",
     comments: "1",
     reposts: "4",
-    likes: "2"
+    likes: "2",
+    liked: true
   },
   {
     avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
@@ -144,7 +145,7 @@ const tweets = [
 ];
 export default function GetTweets() {
   const content = tweets.map(tweet => (
-    <div>
+    <React.Fragment>
       {tweet.pinned && (
         <PinnedWrap>
           <PinnedImage>
@@ -159,7 +160,13 @@ export default function GetTweets() {
           <Author>{tweet.name}</Author>
           <Nickname>{tweet.nickname}</Nickname>
           <TimeStamp>{tweet.time}</TimeStamp>
-          <Post>{tweet.post}</Post>
+          <Post>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: tweet.post
+              }}
+            />
+          </Post>
           <UploadedImage src={tweet.image} alt="" />
           {tweet.preview && (
             <PreviewBox>
@@ -189,7 +196,7 @@ export default function GetTweets() {
           <Icon src={directMessageIcon} alt="" />
         </CountWrap>
       </SocialIcons>
-    </div>
+    </React.Fragment>
   ));
   return <CardWrap>{content}</CardWrap>;
 }

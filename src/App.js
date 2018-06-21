@@ -12,10 +12,10 @@ class App extends Component {
           <meta name="description" content="Я пытался!" />
         </Helmet>
         <Router>
-          <div>
+          <React.Fragment>
             <Route path="/EveryInteraction" component={ProfilePage} />
             <Redirect from="/" to="EveryInteraction" />
-          </div>
+          </React.Fragment>
         </Router>
       </div>
     );

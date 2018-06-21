@@ -6,7 +6,7 @@ import { HeaderImage } from "./HeaderImage";
 import { Menu } from "./Menu";
 
 const ProfilePage = () => (
-  <div>
+  <React.Fragment>
     <Helmet>
       <title>Every Interaction </title>
       <meta
@@ -19,7 +19,7 @@ const ProfilePage = () => (
     <HeaderImage />
     <Menu />
     <MainContainer />
-  </div>
+  </React.Fragment>
 );
 
 export default ProfilePage;

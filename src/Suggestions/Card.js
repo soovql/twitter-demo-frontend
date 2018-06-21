@@ -69,22 +69,20 @@ const users = [
 
 export default function UserList() {
   const content = users.map(user => (
-    <div>
-      <ListItem>
-        <Link to={user.name}>
-          <Avatar src={user.src} />
-        </Link>
-        <Wrap>
-          <NameWrap>
-            <Name to={user.name}>{user.name}</Name>
-            {user.tick && <Tick src={iconTick} />}
-            <NickName>{user.nickname}</NickName>
-          </NameWrap>
-          <Button>Follow</Button>
-        </Wrap>
-        <IconDelete src={iconDelete} />
-      </ListItem>
-    </div>
+    <ListItem>
+      <Link to={user.name}>
+        <Avatar src={user.src} />
+      </Link>
+      <Wrap>
+        <NameWrap>
+          <Name to={user.name}>{user.name}</Name>
+          {user.tick && <Tick src={iconTick} />}
+          <NickName>{user.nickname}</NickName>
+        </NameWrap>
+        <Button>Follow</Button>
+      </Wrap>
+      <IconDelete src={iconDelete} />
+    </ListItem>
   ));
-  return <div>{content}</div>;
+  return <React.Fragment>{content}</React.Fragment>;
 }

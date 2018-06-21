@@ -59,7 +59,7 @@ function UserList() {
       <Icon src={user.src} alt={user.name} />
     </Link>
   ));
-  return <div>{content}</div>;
+  return <React.Fragment>{content}</React.Fragment>;
 }
 
 export default function() {

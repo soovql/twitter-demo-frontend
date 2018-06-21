@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import iconPinned from "./pinned.svg";
-import commentIcon from "./comments.png";
-import retweetIcon from "./retweet.png";
-import likeIcon from "./like.png";
-import directMessageIcon from "./envelope.png";
+import iconPinned from "./icons/pinned.svg";
+import commentIcon from "./icons/comments.png";
+import retweetIcon from "./icons/retweet.png";
+import likeIcon from "./icons/like.png";
+import directMessageIcon from "./icons/envelope.png";
 
 const BlockWrap = styled.div`
   display: flex;
@@ -102,66 +102,94 @@ const CountWrap = styled.div`
   align-items: center;
   align-self: safe center;
 `;
-export const Card = ({
-  pinned,
-  userPic,
-  authorName,
-  authorNickname,
-  postText,
-  timeTweeted,
-  userImage,
-  textPreview,
-  previewBox,
-  imgPreview,
-  titlePreview,
-  countComments,
-  countReposts,
-  countLikes
-}) => (
-  <CardWrap>
-    {pinned && (
-      <PinnedWrap>
-        <PinnedImage>
-          <img src={iconPinned} alt="Pinned Tweet Icon" />
-        </PinnedImage>
-        <PinnedText>Pinned Tweet</PinnedText>
-      </PinnedWrap>
-    )}
-    <BlockWrap>
-      <SmallUserpic src={userPic} alt="" />
-      <PostWrap>
-        <Author>{authorName}</Author>
-        <Nickname>{authorNickname}</Nickname>
-        <TimeStamp>{timeTweeted}</TimeStamp>
-        <Post>{postText}</Post>
-        <UploadedImage src={userImage} alt="" />
-        {previewBox && (
-          <PreviewBox>
-            <PreviewImage src={imgPreview} alt="" />
-            <TextWrap>
-              <PreviewTitle>{titlePreview}</PreviewTitle>
-              <PreviewText>{textPreview}</PreviewText>
-            </TextWrap>
-          </PreviewBox>
-        )}
-      </PostWrap>
-    </BlockWrap>
-    <SocialIcons>
-      <CountWrap>
-        <Icon src={commentIcon} alt="" />
-        <Counter>{countComments}</Counter>
-      </CountWrap>
-      <CountWrap>
-        <Icon src={retweetIcon} alt="" />
-        <Counter>{countReposts}</Counter>
-      </CountWrap>
-      <CountWrap>
-        <Icon src={likeIcon} alt="" />
-        <Counter>{countLikes}</Counter>
-      </CountWrap>
-      <CountWrap>
-        <Icon src={directMessageIcon} alt="" />
-      </CountWrap>
-    </SocialIcons>
-  </CardWrap>
-);
+
+const tweets = [
+  {
+    pinned: true,
+    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    name: "Every Interaction",
+    nickname: "@EveryInteract",
+    image: process.env.PUBLIC_URL + "/img/content/content_01.png",
+    time: "• 2 Mar 2015",
+    post:
+      "We’ve made some more resources for all you wonderful #design folk everyinteraction.com/resources/ #webdesign #UI",
+    reposts: "17",
+    likes: "47"
+  },
+  {
+    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    name: "Every Interaction",
+    nickname: "@EveryInteract",
+    time: "• 23h",
+    post:
+      "Our new website concept; Taking you from… @ Every Interaction instagram.com/p/BNFGrfhBP3M/",
+    comments: "1",
+    reposts: "4",
+    likes: "2"
+  },
+  {
+    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    name: "Every Interaction",
+    nickname: "@EveryInteract",
+    time: "• Nov 18",
+    post:
+      "Variable web fonts are coming, and will open a world of opportunities for weight use online",
+    preview: {
+      p_image: process.env.PUBLIC_URL + "/img/content/preview_01.png",
+      p_title: "The Future of Web Fonts",
+      p_text:
+        "We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com"
+    }
+  }
+];
+export default function GetTweets() {
+  const content = tweets.map(tweet => (
+    <div>
+      {tweet.pinned && (
+        <PinnedWrap>
+          <PinnedImage>
+            <img src={iconPinned} alt="Pinned Tweet Icon" />
+          </PinnedImage>
+          <PinnedText>Pinned Tweet</PinnedText>
+        </PinnedWrap>
+      )}
+      <BlockWrap>
+        <SmallUserpic src={tweet.avatar} alt="" />
+        <PostWrap>
+          <Author>{tweet.name}</Author>
+          <Nickname>{tweet.nickname}</Nickname>
+          <TimeStamp>{tweet.time}</TimeStamp>
+          <Post>{tweet.post}</Post>
+          <UploadedImage src={tweet.image} alt="" />
+          {tweet.preview && (
+            <PreviewBox>
+              <PreviewImage src={tweet.preview.p_image} alt="" />
+              <TextWrap>
+                <PreviewTitle>{tweet.preview.p_title}</PreviewTitle>
+                <PreviewText>{tweet.preview.p_text}</PreviewText>
+              </TextWrap>
+            </PreviewBox>
+          )}
+        </PostWrap>
+      </BlockWrap>
+      <SocialIcons>
+        <CountWrap>
+          <Icon src={commentIcon} alt="" />
+          <Counter>{tweet.comments}</Counter>
+        </CountWrap>
+        <CountWrap>
+          <Icon src={retweetIcon} alt="" />
+          <Counter>{tweet.reposts}</Counter>
+        </CountWrap>
+        <CountWrap>
+          <Icon src={likeIcon} alt="" />
+          <Counter>{tweet.likes}</Counter>
+        </CountWrap>
+        <CountWrap>
+          <Icon src={directMessageIcon} alt="" />
+        </CountWrap>
+      </SocialIcons>
+    </div>
+  ));
+  return <CardWrap>{content}</CardWrap>;
+}

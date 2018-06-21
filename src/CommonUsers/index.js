@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import followersIcon from "./icons/followers.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const FollowersWrap = styled.div`
   padding-top: 19px;
 `;
 const FollowerIcon = styled.img``;
-const CommonUsers = styled.div``;
+const CommonUsers = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 const Title = styled(NavLink)`
   color: #1da1f2;
   padding-left: 12px;
@@ -23,9 +26,41 @@ const TitleWrap = styled.div`
   padding-bottom: 8px;
 `;
 
-const CommonUser = ({ userNickname, userPic }) => (
-  <Icon src={userPic} alt={userNickname} />
-);
+const users = [
+  {
+    name: "username1",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_1.png"
+  },
+  {
+    name: "username2",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_2.png"
+  },
+  {
+    name: "username3",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_3.png"
+  },
+  {
+    name: "username4",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_4.png"
+  },
+  {
+    name: "username5",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_5.png"
+  },
+  {
+    name: "username6",
+    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_6.png"
+  }
+];
+
+function UserList() {
+  const content = users.map(user => (
+    <Link to={user.name}>
+      <Icon src={user.src} alt={user.name} />
+    </Link>
+  ));
+  return <div>{content}</div>;
+}
 
 export default function() {
   return (
@@ -35,42 +70,7 @@ export default function() {
         <Title to="/followers_you_follow">6 Followers you know</Title>
       </TitleWrap>
       <CommonUsers>
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_1.png"
-          }
-          alt="userNickname1"
-        />
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_2.png"
-          }
-          alt="userNickname2"
-        />
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_3.png"
-          }
-          alt="userNickname3"
-        />
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_4.png"
-          }
-          alt="userNickname4"
-        />
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_5.png"
-          }
-          alt="userNickname5"
-        />
-        <CommonUser
-          userPic={
-            process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_6.png"
-          }
-          alt="userNickname6"
-        />
+        <UserList users={users} />
       </CommonUsers>
     </FollowersWrap>
   );

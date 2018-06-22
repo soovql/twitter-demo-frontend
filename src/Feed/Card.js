@@ -118,8 +118,8 @@ const tweets = [
     time: "• 2 Mar 2015",
     post:
       "We’ve made some more resources for all you wonderful <a href='#design' target='_blank'>#design</a> folk <a href='https://everyinteraction.com/resources/' target='_blank'>everyinteraction.com/resources/</a> <a href='#webdesign' target='_blank'>#webdesign</a> <a href='#ui' target='_blank'>#UI</div>",
-    reposts: "17",
-    likes: "47"
+    reposts: 17,
+    likes: 47
   },
   {
     avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
@@ -128,9 +128,9 @@ const tweets = [
     time: "• 23h",
     post:
       "Our new website concept; Taking you from… @ Every Interaction <a href='https://instagram.com/p/BNFGrfhBP3M/' target='_blank'>instagram.com/p/BNFGrfhBP3M/</a>",
-    comments: "1",
-    reposts: "4",
-    likes: "2",
+    comments: 1,
+    reposts: 4,
+    likes: 2,
     liked: true
   },
   {

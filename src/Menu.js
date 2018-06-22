@@ -44,6 +44,7 @@ const StyledLink = styled(NavLink)`
   font-weight: bold;
   padding: 0 11px 8px;
   border-bottom: 2px solid #fff;
+  text-align: center;
 
   &:hover {
     border-bottom: 2px solid #1da1f2;

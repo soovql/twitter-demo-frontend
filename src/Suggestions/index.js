@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Card from "./Card";
 import iconPeople from "./icons/people.png";
 
-const TitleWrap = styled.div`
+const Title = styled.div`
   display: flex;
   align-items: baseline;
   padding-bottom: 10px;
@@ -21,7 +21,7 @@ const Extra = styled(NavLink)`
     text-decorataion: underline;
   }
 `;
-const Title = styled.div`
+const Text = styled.div`
   font-size: 18px;
   font-weight: bold;
   padding-left: 2px;
@@ -38,12 +38,10 @@ const IconPeople = styled.img`
 
 export default props => (
   <ContentBlock>
-    <TitleWrap>
-      <Title> Who to follow&nbsp;</Title>·<Extra to="">
-        &nbsp;Refresh&nbsp;
-      </Extra>·
+    <Title>
+      <Text> Who to follow&nbsp;</Text>·<Extra to="">&nbsp;Refresh&nbsp;</Extra>·
       <Extra to="/who_to_follow/suggestions">&nbsp;View All</Extra>
-    </TitleWrap>
+    </Title>
 
     <Card />
     <Search>

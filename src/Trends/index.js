@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const Wrap = styled.div`
+const Trends = styled.div`
   background: #fff;
   margin-top: 15px;
   padding: 0 0 47px 16px;
@@ -85,10 +85,10 @@ function TrendsList() {
 
 export default function() {
   return (
-    <Wrap>
+    <Trends>
       <Title>United Kingdom Trends</Title> ·
       <Change to="">Change</Change>
       <TrendsList trends={trends} />
-    </Wrap>
+    </Trends>
   );
 }

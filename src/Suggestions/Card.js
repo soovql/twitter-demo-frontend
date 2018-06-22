@@ -23,7 +23,7 @@ const IconDelete = styled.img`
   right: 17px;
   top: 17px;
 `;
-const NameWrap = styled.div`
+const User = styled.div`
   padding: 0 40px 9px 2px;
   font-size: 13px;
   line-height: 16px;
@@ -37,19 +37,19 @@ const NickName = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
-const ListItem = styled.div`
-  padding-top: 10px;
+const Suggestion = styled.div`
   position: relative;
   border-bottom: 1px solid #e6ecf0;
   display: flex;
+  padding: 10px 0 16px 10px;
 `;
 const Tick = styled.img`
   vertical-align: middle;
   padding: 0 2px 0 2px;
   align-self: center;
 `;
-const Wrap = styled.div`
-  padding: 0 0 16px 10px;
+const Block = styled.div`
+  padding-left: 10px;
 `;
 
 const users = [
@@ -73,20 +73,20 @@ const users = [
 
 export default function UserList() {
   const content = users.map(user => (
-    <ListItem>
+    <Suggestion>
       <Link to={user.name}>
         <Avatar src={user.src} />
       </Link>
-      <Wrap>
-        <NameWrap>
+      <Block>
+        <User>
           <Name to={user.name}>{user.name}</Name>
           {user.tick && <Tick src={iconTick} />}
           <NickName>{user.nickname}</NickName>
-        </NameWrap>
+        </User>
         <Button>Follow</Button>
-      </Wrap>
+      </Block>
       <IconDelete src={iconDelete} />
-    </ListItem>
+    </Suggestion>
   ));
   return <React.Fragment>{content}</React.Fragment>;
 }

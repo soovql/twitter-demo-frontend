@@ -3,7 +3,7 @@ import styled from "styled-components";
 import followersIcon from "./icons/followers.png";
 import { NavLink, Link } from "react-router-dom";
 
-const FollowersWrap = styled.div`
+const Users = styled.div`
   padding-top: 19px;
 `;
 const FollowerIcon = styled.img``;
@@ -11,7 +11,7 @@ const CommonUsers = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-const Title = styled(NavLink)`
+const Text = styled(NavLink)`
   color: #1da1f2;
   padding-left: 12px;
   font-size: 14px;
@@ -21,7 +21,7 @@ const Title = styled(NavLink)`
 const Icon = styled.img`
   padding-left: 5px;
 `;
-const TitleWrap = styled.div`
+const Title = styled.div`
   display: flex;
   padding-bottom: 8px;
 `;
@@ -64,14 +64,14 @@ function UserList() {
 
 export default function() {
   return (
-    <FollowersWrap>
-      <TitleWrap>
+    <Users>
+      <Title>
         <FollowerIcon src={followersIcon} />
-        <Title to="/followers_you_follow">6 Followers you know</Title>
-      </TitleWrap>
+        <Text to="/followers_you_follow">6 Followers you know</Text>
+      </Title>
       <CommonUsers>
         <UserList users={users} />
       </CommonUsers>
-    </FollowersWrap>
+    </Users>
   );
 }

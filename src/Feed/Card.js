@@ -6,7 +6,7 @@ import retweetIcon from "./icons/retweet.png";
 import likeIcon from "./icons/like.png";
 import directMessageIcon from "./icons/envelope.png";
 
-const BlockWrap = styled.div`
+const Box = styled.div`
   display: flex;
 `;
 
@@ -26,6 +26,7 @@ const Nickname = styled.div`
 `;
 const Post = styled.div`
   font-size: 25px;
+  line-height: 30px;
   font-weight: lighter;
 `;
 
@@ -35,25 +36,25 @@ const SmallUserpic = styled.img`
   width: auto;
   margin: 5px 15px 0 0;
 `;
-const PinnedWrap = styled.div`
+const Pinned = styled.div`
   display: flex;
   align-items: center;
   margin-left: 45px;
 `;
-const PinnedImage = styled.div``;
-const PinnedText = styled.p`
+const PinnedIcon = styled.img``;
+const Text = styled.p`
   color: #707e88;
   font-size: 12px;
   line-height: 14px;
   padding-left: 6px;
 `;
-const PostWrap = styled.div``;
+const Content = styled.div``;
 
-const CardWrap = styled.div`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 9px 9px 9px 17px;
   border-bottom: 1px solid #e1e8ed;
+  padding: 9px 11px 9px 17px;
 `;
 const TimeStamp = styled.div`
   display: inline-block;
@@ -65,6 +66,7 @@ const TimeStamp = styled.div`
 `;
 const UploadedImage = styled.img`
   width: 100%;
+  padding-top: 17px;
 `;
 
 const PreviewImage = styled.img``;
@@ -87,9 +89,9 @@ const TextWrap = styled.div`
   flex-direction: column;
   padding: 0 8px 0;
 `;
-const SocialIcons = styled.div`
+const Social = styled.div`
   display: flex;
-  margin: 14px 0 14px 45px;
+  margin: 14px 0 0 45px;
 `;
 const Icon = styled.img`
   height: 100%;
@@ -99,7 +101,7 @@ const Counter = styled.div`
   font-weight: bold;
   padding-left: 10px;
 `;
-const CountWrap = styled.div`
+const Action = styled.div`
   margin-right: 40px;
   display: flex;
   align-items: center;
@@ -148,18 +150,16 @@ const tweets = [
 ];
 export default function GetTweets() {
   const content = tweets.map(tweet => (
-    <React.Fragment>
+    <Card>
       {tweet.pinned && (
-        <PinnedWrap>
-          <PinnedImage>
-            <img src={iconPinned} alt="Pinned Tweet Icon" />
-          </PinnedImage>
-          <PinnedText>Pinned Tweet</PinnedText>
-        </PinnedWrap>
+        <Pinned>
+          <PinnedIcon src={iconPinned} alt="Pinned Tweet Icon" />
+          <Text>Pinned Tweet</Text>
+        </Pinned>
       )}
-      <BlockWrap>
+      <Box>
         <SmallUserpic src={tweet.avatar} alt="" />
-        <PostWrap>
+        <Content>
           <Author>{tweet.name}</Author>
           <Nickname>{tweet.nickname}</Nickname>
           <TimeStamp>{tweet.time}</TimeStamp>
@@ -185,26 +185,26 @@ export default function GetTweets() {
               </PreviewBox>
             </React.Fragment>
           )}
-        </PostWrap>
-      </BlockWrap>
-      <SocialIcons>
-        <CountWrap>
+        </Content>
+      </Box>
+      <Social>
+        <Action>
           <Icon src={commentIcon} alt="" />
           <Counter>{tweet.comments}</Counter>
-        </CountWrap>
-        <CountWrap>
+        </Action>
+        <Action>
           <Icon src={retweetIcon} alt="" />
           <Counter>{tweet.reposts}</Counter>
-        </CountWrap>
-        <CountWrap>
+        </Action>
+        <Action>
           <Icon src={likeIcon} alt="" />
           <Counter>{tweet.likes}</Counter>
-        </CountWrap>
-        <CountWrap>
+        </Action>
+        <Action>
           <Icon src={directMessageIcon} alt="" />
-        </CountWrap>
-      </SocialIcons>
-    </React.Fragment>
+        </Action>
+      </Social>
+    </Card>
   ));
-  return <CardWrap>{content}</CardWrap>;
+  return <React.Fragment>{content}</React.Fragment>;
 }

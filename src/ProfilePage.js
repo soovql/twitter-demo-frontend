@@ -6,14 +6,14 @@ import { Header } from "./Header";
 import { HeaderImage } from "./HeaderImage";
 import { Menu } from "./Menu";
 import { Grid, Col, Row } from "react-flexbox-grid";
-import { Feed } from "./Feed/TwitterFeed";
+import TwitterFeed from "./Feed";
 import Info from "./Info";
 import Suggestions from "./Suggestions";
 import CommonUsers from "./CommonUsers";
 import Trends from "./Trends";
 import About from "./About";
 
-const ProfileWrap = styled.div`
+const Profile = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
@@ -50,7 +50,7 @@ const ProfilePage = () => (
         content="The latest Tweets from Every Interaction (@EveryInteract)."
       />
     </Helmet>{" "}
-    <ProfileWrap>
+    <Profile>
       <Header />
 
       <HeaderImage />
@@ -70,7 +70,7 @@ const ProfilePage = () => (
               <Tab to="/media">Media</Tab>
             </FeedTab>
 
-            <Feed />
+            <TwitterFeed />
           </Col>
           <Col sm={3}>
             <Suggestions />
@@ -79,7 +79,7 @@ const ProfilePage = () => (
           </Col>
         </Row>
       </Grid>
-    </ProfileWrap>
+    </Profile>
   </React.Fragment>
 );
 

@@ -22,12 +22,11 @@ const Name = styled(NavLink)`
 
 const IconDelete = styled.img`
   position: absolute;
-  right: 17px;
-  top: 17px;
+  right: 0;
 `;
 
 const User = styled.div`
-  padding: 0 40px 9px 2px;
+  padding: 0 20px 9px 2px;
   font-size: 13px;
   line-height: 16px;
   display: flex;
@@ -57,6 +56,7 @@ const Tick = styled.img`
 
 const Block = styled.div`
   padding-left: 10px;
+  overflow: hidden;
 `;
 
 const users = [

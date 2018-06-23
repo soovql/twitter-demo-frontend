@@ -64,8 +64,7 @@ export const Menu = () => (
   <MenuNav>
     <Grid>
       <Row>
-        <Col sm={3} />
-        <Col sm={6}>
+        <Col sm={6} smOffset={3}>
           <Statistics>
             <StyledLink to="/EveryInteraction" exact={true}>
               <Name>Tweets</Name>

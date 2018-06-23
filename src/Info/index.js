@@ -10,6 +10,7 @@ const UserInfo = styled.div`
   margin-top: 30px;
   position: relative;
 `;
+
 const Name = styled.div`
   color: #14171a;
   font-size: 22px;
@@ -24,6 +25,7 @@ const Nickname = styled.div`
   font-size: 14px;
   line-height: 21px;
 `;
+
 const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
@@ -33,6 +35,7 @@ const Description = styled.p`
 const ExtrasBlock = styled.ul`
   padding: 0;
 `;
+
 const Avatar = styled.img`
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -56,6 +59,7 @@ const ExtrasInfo = styled.li`
 const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
+
 export default function() {
   return (
     <UserInfo>

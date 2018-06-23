@@ -6,11 +6,14 @@ import { NavLink, Link } from "react-router-dom";
 const Users = styled.div`
   padding-top: 19px;
 `;
+
 const FollowerIcon = styled.img``;
+
 const CommonUsers = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+
 const Text = styled(NavLink)`
   color: #1da1f2;
   padding-left: 12px;
@@ -18,9 +21,11 @@ const Text = styled(NavLink)`
   line-height: 16px;
   text-decoration: none;
 `;
+
 const Icon = styled.img`
   padding-left: 5px;
 `;
+
 const Title = styled.div`
   display: flex;
   padding-bottom: 8px;

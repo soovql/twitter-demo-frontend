@@ -8,6 +8,7 @@ import iconDelete from "./icons/delete.png";
 const Avatar = styled.img`
   align-self: center;
 `;
+
 const Name = styled(NavLink)`
   font-weight: bold;
   color: #333;
@@ -18,11 +19,13 @@ const Name = styled(NavLink)`
     color: #004287;
   }
 `;
+
 const IconDelete = styled.img`
   position: absolute;
   right: 17px;
   top: 17px;
 `;
+
 const User = styled.div`
   padding: 0 40px 9px 2px;
   font-size: 13px;
@@ -30,6 +33,7 @@ const User = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const NickName = styled.div`
   color: #657786;
   overflow: hidden;
@@ -37,17 +41,20 @@ const NickName = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
+
 const Suggestion = styled.div`
   position: relative;
   border-bottom: 1px solid #e6ecf0;
   display: flex;
   padding: 10px 0 16px 10px;
 `;
+
 const Tick = styled.img`
   vertical-align: middle;
   padding: 0 2px 0 2px;
   align-self: center;
 `;
+
 const Block = styled.div`
   padding-left: 10px;
 `;

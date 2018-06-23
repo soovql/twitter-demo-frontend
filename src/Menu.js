@@ -14,6 +14,7 @@ const MenuNav = styled.div`
 const FollowNav = styled.div`
   text-align: right;
 `;
+
 const ActionButton = styled.div`
   background-image: url(${iconMore});
   background-repeat: no-repeat;
@@ -21,6 +22,7 @@ const ActionButton = styled.div`
   height: 14px;
   display: inline-block;
 `;
+
 const Statistics = styled.ul`
   padding: 0;
   margin: 0;
@@ -31,6 +33,7 @@ const Name = styled.div`
   font-size: 12px;
   line-height: 21px;
 `;
+
 const Count = styled.div`
   display: block;
   font-size: 18px;

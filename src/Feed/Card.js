@@ -16,6 +16,7 @@ const Author = styled.div`
   padding-bottom: 10px;
   font-size: 16px;
 `;
+
 const Nickname = styled.div`
   display: inline-block;
   padding-bottom: 10px;
@@ -24,6 +25,7 @@ const Nickname = styled.div`
   color: #788a98;
   font-weight: bold;
 `;
+
 const Post = styled.div`
   font-size: 25px;
   line-height: 30px;
@@ -36,18 +38,22 @@ const SmallUserpic = styled.img`
   width: auto;
   margin: 5px 15px 0 0;
 `;
+
 const Pinned = styled.div`
   display: flex;
   align-items: center;
   margin-left: 45px;
 `;
+
 const PinnedIcon = styled.img``;
+
 const Text = styled.p`
   color: #707e88;
   font-size: 12px;
   line-height: 14px;
   padding-left: 6px;
 `;
+
 const Content = styled.div``;
 
 const Card = styled.div`
@@ -56,6 +62,7 @@ const Card = styled.div`
   border-bottom: 1px solid #e1e8ed;
   padding: 9px 11px 9px 17px;
 `;
+
 const TimeStamp = styled.div`
   display: inline-block;
   padding-bottom: 10px;
@@ -64,43 +71,52 @@ const TimeStamp = styled.div`
   color: #788a98;
   font-weight: bold;
 `;
+
 const UploadedImage = styled.img`
   width: 100%;
   padding-top: 17px;
 `;
 
 const PreviewImage = styled.img``;
+
 const PreviewText = styled.p`
   text-align: left;
   font-size: 15px;
   margin-top: 2px;
 `;
+
 const PreviewBox = styled.div`
   border: 1px solid #e1e8ed;
   display: flex;
 `;
+
 const PreviewTitle = styled.p`
   margin-bottom: 0;
   font-weight: bold;
   font-size: 16px;
 `;
+
 const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 8px 0;
 `;
+
 const Social = styled.div`
   display: flex;
   margin: 14px 0 0 45px;
 `;
+
 const Icon = styled.img`
   height: 100%;
 `;
+
 const Counter = styled.div`
   color: #667580;
   font-weight: bold;
   padding-left: 10px;
 `;
+
 const Action = styled.div`
   margin-right: 40px;
   display: flex;

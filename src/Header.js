@@ -57,6 +57,7 @@ const UserBox = styled.div`
   display: flex;
   padding: 6px 0;
 `;
+
 const SearchBox = styled.form`
   display: flex;
   justify-content: space-between;

@@ -9,6 +9,7 @@ const Block = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+
 const StyledLink = styled(NavLink)`
   color: #718290;
   padding-left: 5px;
@@ -17,6 +18,7 @@ const StyledLink = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+
 const Copyright = styled.span`
   color: #718290;
 `;
@@ -25,12 +27,12 @@ export default function() {
   return (
     <Block>
       <Copyright>© 2018 Twitter</Copyright>
-      <StyledLink to="about">About</StyledLink>
-      <StyledLink to="support">Help Center</StyledLink>
-      <StyledLink to="tos">Terms</StyledLink>
-      <StyledLink to="privacy">Privacy policy</StyledLink>
-      <StyledLink to="cookies">Cookies</StyledLink>
-      <StyledLink to="ads">Ads info</StyledLink>
+      <StyledLink to="/about">About</StyledLink>
+      <StyledLink to="/support">Help Center</StyledLink>
+      <StyledLink to="/tos">Terms</StyledLink>
+      <StyledLink to="/privacy">Privacy policy</StyledLink>
+      <StyledLink to="/cookies">Cookies</StyledLink>
+      <StyledLink to="/ads">Ads info</StyledLink>
     </Block>
   );
 }

@@ -79,6 +79,7 @@ const Change = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+
 const Count = props => (
   <Description>
     <FormattedMessage

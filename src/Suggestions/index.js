@@ -9,10 +9,12 @@ const Title = styled.div`
   align-items: baseline;
   padding-bottom: 10px;
 `;
+
 const ContentBlock = styled.div`
   background: #fff;
   padding: 12px;
 `;
+
 const Extra = styled(NavLink)`
   font-size: 12px;
   text-decoration: none;
@@ -21,16 +23,19 @@ const Extra = styled(NavLink)`
     text-decorataion: underline;
   }
 `;
+
 const Text = styled.div`
   font-size: 18px;
   font-weight: bold;
   padding-left: 2px;
 `;
+
 const Search = styled.div`
   color: #1da1f2;
   line-height: 15px;
   padding: 23px 0 19px 0;
 `;
+
 const IconPeople = styled.img`
   vertical-align: middle;
   padding-right: 6px;

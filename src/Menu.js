@@ -15,7 +15,7 @@ const FollowNav = styled.div`
   text-align: right;
 `;
 
-const ActionButton = styled.div`
+const More = styled.div`
   background-image: url(${iconMore});
   background-repeat: no-repeat;
   width: 14px;
@@ -98,7 +98,7 @@ export const Menu = () => (
         <Col sm={3}>
           <FollowNav>
             <Button>Follow</Button>
-            <ActionButton />
+            <More />
           </FollowNav>
         </Col>
       </Row>

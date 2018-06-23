@@ -127,10 +127,10 @@ const Action = styled.div`
 const tweets = [
   {
     pinned: true,
-    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    avatar: `${process.env.PUBLIC_URL}/img/avatar_small.png`,
     name: "Every Interaction",
     nickname: "@EveryInteract",
-    image: process.env.PUBLIC_URL + "/img/content/content_01.png",
+    image: `${process.env.PUBLIC_URL}/img/content/content_01.png`,
     time: "• 2 Mar 2015",
     post:
       "We’ve made some more resources for all you wonderful <a href='#design' target='_blank'>#design</a> folk <a href='https://everyinteraction.com/resources/' target='_blank'>everyinteraction.com/resources/</a> <a href='#webdesign' target='_blank'>#webdesign</a> <a href='#ui' target='_blank'>#UI</div>",
@@ -138,7 +138,7 @@ const tweets = [
     likes: 47
   },
   {
-    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
     name: "Every Interaction",
     nickname: "@EveryInteract",
     time: "• 23h",
@@ -150,14 +150,14 @@ const tweets = [
     liked: true
   },
   {
-    avatar: process.env.PUBLIC_URL + "/img/avatar_small.png",
+    avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
     name: "Every Interaction",
     nickname: "@EveryInteract",
     time: "• Nov 18",
     preview: {
       description:
         "Variable web fonts are coming, and will open a world of opportunities for weight use online",
-      image: process.env.PUBLIC_URL + "/img/content/preview_01.png",
+      image: `${process.env.PUBLIC_URL}/img/content/preview_01.png`,
       title: "The Future of Web Fonts",
       text:
         "We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com"

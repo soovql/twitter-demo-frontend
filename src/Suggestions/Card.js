@@ -63,18 +63,18 @@ const users = [
   {
     name: "AppleInsider",
     nickname: "@appleinsider",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/suggestion_avatar_1.png"
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_1.png`
   },
   {
     tick: true,
     name: "Creode",
     nickname: "@Creode",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/suggestion_avatar_2.png"
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_2.png`
   },
   {
     name: "Epiphany Search",
     nickname: "@Epiphany",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/suggestion_avatar_3.png"
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_3.png`
   }
 ];
 

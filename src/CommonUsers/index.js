@@ -33,34 +33,40 @@ const Title = styled.div`
 
 const users = [
   {
-    name: "username1",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_1.png"
+    name: `username1`,
+    nickname: `nickname1`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`
   },
   {
-    name: "username2",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_2.png"
+    name: `username2`,
+    nickname: `nickname2`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`
   },
   {
-    name: "username3",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_3.png"
+    name: `username3`,
+    nickname: `nickname3`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`
   },
   {
-    name: "username4",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_4.png"
+    name: `username4`,
+    nickname: `nickname4`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`
   },
   {
-    name: "username5",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_5.png"
+    name: `username5`,
+    nickname: `nickname5`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`
   },
   {
-    name: "username6",
-    src: process.env.PUBLIC_URL + "/img/user_avatars/follower_avatar_6.png"
+    name: `username6`,
+    nickname: `nickname6`,
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`
   }
 ];
 
 function UserList() {
   const content = users.map(user => (
-    <Link to={user.name}>
+    <Link to={user.nickname} title={user.name}>
       <Icon src={user.src} alt={user.name} />
     </Link>
   ));

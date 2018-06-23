@@ -32,10 +32,6 @@ const Description = styled.p`
   color: 14171a;
 `;
 
-const ExtrasBlock = styled.ul`
-  padding: 0;
-`;
-
 const Avatar = styled.img`
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -46,6 +42,10 @@ const Avatar = styled.img`
   z-index: 2;
   left: 5%;
   top: -67%;
+`;
+
+const About = styled.ul`
+  padding: 0;
 `;
 
 const ExtrasInfo = styled.li`
@@ -63,7 +63,7 @@ const ExtrasContent = styled.div`
 export default function() {
   return (
     <UserInfo>
-      <Avatar src={process.env.PUBLIC_URL + "/img/avatar.png"} />
+      <Avatar src={`${process.env.PUBLIC_URL}/img/avatar.png`} />
       <Name>Every Interaction</Name>
       <img src={iconTick} title="Verified account" alt="Approved User Tick" />
       <Nickname>@EveryInteract</Nickname>
@@ -71,7 +71,7 @@ export default function() {
         UX Design studio focussed problem solving creativity. Design to us is
         how can we make things *work* amazing.
       </Description>
-      <ExtrasBlock>
+      <About>
         <ExtrasInfo>
           <img src={iconLocation} alt="" />
           <ExtrasContent>London, UK </ExtrasContent>
@@ -84,7 +84,7 @@ export default function() {
           <img src={iconJoined} alt="" />
           <ExtrasContent>Joined May 2008</ExtrasContent>
         </ExtrasInfo>
-      </ExtrasBlock>
+      </About>
       <Button primary>Tweet to</Button>
       <Button primary>Message</Button>
     </UserInfo>

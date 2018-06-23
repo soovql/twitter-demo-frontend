@@ -9,11 +9,10 @@ const Trends = styled.div`
   padding: 0 0 47px 16px;
 `;
 
-const Title = styled.div`
+const Title = styled.h3`
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
-  padding-top: 15px;
   display: inline-block;
 `;
 

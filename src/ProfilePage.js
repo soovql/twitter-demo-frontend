@@ -49,7 +49,7 @@ const ProfilePage = () => (
         name="description"
         content="The latest Tweets from Every Interaction (@EveryInteract)."
       />
-    </Helmet>{" "}
+    </Helmet>
     <Profile>
       <Header />
 

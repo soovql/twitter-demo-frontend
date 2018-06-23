@@ -93,9 +93,12 @@ const Button = styled.button`
   outline: none;
 `;
 
-const UserAvatarSmall = styled.div`
-  border-radius: 50%;
+const Avatar = styled(NavLink)`
   padding: 0 18px;
+`;
+
+const Img = styled.img`
+  border-radius: 50%;
 `;
 
 const ButtonTweet = styled.button`
@@ -147,14 +150,12 @@ export const Header = props => (
         <Input type="text" placeholder="Search Twitter" />
         <Button />
       </SearchBox>
-      <UserAvatarSmall>
-        <a href="/profile" title="Profile and Settings">
-          <img
-            src={process.env.PUBLIC_URL + "/img/avatar_small.png"}
-            alt="Small User Avatar"
-          />
-        </a>
-      </UserAvatarSmall>
+      <Avatar to="/profile" title="Profile and Settings">
+        <Img
+          src={`${process.env.PUBLIC_URL}/img/avatar_small.png`}
+          alt="Small User Avatar"
+        />
+      </Avatar>
       <ButtonTweet>Tweet</ButtonTweet>
     </UserBox>
   </NavBar>

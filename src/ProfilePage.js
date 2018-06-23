@@ -12,6 +12,7 @@ import Suggestions from "./Suggestions";
 import CommonUsers from "./CommonUsers";
 import Trends from "./Trends";
 import About from "./About";
+import UserMedia from "./UserMedia";
 
 const Profile = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -60,6 +61,7 @@ const ProfilePage = () => (
           <Col sm={3}>
             <Info />
             <CommonUsers />
+            <UserMedia />
           </Col>
           <Col sm={6}>
             <FeedTab>

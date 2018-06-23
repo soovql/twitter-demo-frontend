@@ -20,6 +20,9 @@ const Text = styled(NavLink)`
   font-size: 14px;
   line-height: 16px;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Icon = styled.img`

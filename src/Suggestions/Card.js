@@ -74,12 +74,12 @@ const users = [
 export default function UserList() {
   const content = users.map(user => (
     <Suggestion>
-      <Link to={user.name}>
+      <Link to={user.nickname}>
         <Avatar src={user.src} />
       </Link>
       <Block>
         <User>
-          <Name to={user.name}>{user.name}</Name>
+          <Name to={user.nickname}>{user.name}</Name>
           {user.tick && <Tick src={iconTick} />}
           <NickName>{user.nickname}</NickName>
         </User>

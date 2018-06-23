@@ -139,16 +139,16 @@ const tweets = [
     nickname: "@EveryInteract",
     time: "• Nov 18",
     preview: {
-      p_description:
+      description:
         "Variable web fonts are coming, and will open a world of opportunities for weight use online",
-      p_image: process.env.PUBLIC_URL + "/img/content/preview_01.png",
-      p_title: "The Future of Web Fonts",
-      p_text:
+      image: process.env.PUBLIC_URL + "/img/content/preview_01.png",
+      title: "The Future of Web Fonts",
+      text:
         "We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com"
     }
   }
 ];
-export default function GetTweets() {
+export default function Tweets() {
   const content = tweets.map(tweet => (
     <Card>
       {tweet.pinned && (
@@ -175,12 +175,12 @@ export default function GetTweets() {
           {tweet.image && <UploadedImage src={tweet.image} alt="" />}
           {tweet.preview && (
             <React.Fragment>
-              <PreviewText>{tweet.preview.p_description}</PreviewText>
+              <PreviewText>{tweet.preview.description}</PreviewText>
               <PreviewBox>
-                <PreviewImage src={tweet.preview.p_image} alt="" />
+                <PreviewImage src={tweet.preview.image} alt="" />
                 <TextWrap>
-                  <PreviewTitle>{tweet.preview.p_title}</PreviewTitle>
-                  <PreviewText>{tweet.preview.p_text}</PreviewText>
+                  <PreviewTitle>{tweet.preview.title}</PreviewTitle>
+                  <PreviewText>{tweet.preview.text}</PreviewText>
                 </TextWrap>
               </PreviewBox>
             </React.Fragment>

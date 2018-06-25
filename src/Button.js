@@ -9,4 +9,7 @@ export const Button = styled.button`
   border-radius: 100px;
   margin-right: 18px;
   cursor: pointer;
+  &:hover {
+    background: ${props => (props.primary ? "#1DA1F2" : "#eaf5fd")};
+  }
 `;

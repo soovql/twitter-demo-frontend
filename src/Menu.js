@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { Grid, Col, Row } from "react-flexbox-grid";
-import { Button } from "./Button";
-import iconMore from "./icons/more.png";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { Grid, Col, Row } from 'react-flexbox-grid';
+import Button from './Button';
+import iconMore from './icons/more.png';
 
 const MenuNav = styled.div`
   padding-top: 9px;
@@ -63,41 +63,61 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const Menu = () => (
+export default () => (
   <MenuNav>
     <Grid>
       <Row>
         <Col sm={6} smOffset={3}>
           <Statistics>
-            <StyledLink to="/EveryInteraction" exact={true}>
-              <Name>Tweets</Name>
-              <Count>8,058</Count>
+            <StyledLink to="/EveryInteraction" exact>
+              <Name>
+Tweets
+              </Name>
+              <Count>
+8,058
+              </Count>
             </StyledLink>
 
             <StyledLink to="/following">
-              <Name>Following</Name>
-              <Count>721</Count>
+              <Name>
+Following
+              </Name>
+              <Count>
+721
+              </Count>
             </StyledLink>
 
             <StyledLink to="/followers">
-              <Name>Followers</Name>
-              <Count>1,815</Count>
+              <Name>
+Followers
+              </Name>
+              <Count>
+1,815
+              </Count>
             </StyledLink>
 
             <StyledLink to="/likes">
-              <Name>Likes</Name>
-              <Count>460</Count>
+              <Name>
+Likes
+              </Name>
+              <Count>
+460
+              </Count>
             </StyledLink>
 
             <StyledLink to="/lists">
-              <Name>Lists</Name>
-              <Count>2</Count>
+              <Name>
+Lists
+              </Name>
+              <Count>
+2
+              </Count>
             </StyledLink>
           </Statistics>
         </Col>
         <Col sm={3}>
           <FollowNav>
-            <Button>Follow</Button>
+            <Button />
             <More />
           </FollowNav>
         </Col>

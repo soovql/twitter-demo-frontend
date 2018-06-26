@@ -1,40 +1,42 @@
-import React from "react";
-import styled from "styled-components";
-import mediaIcon from "./media.png";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import mediaIcon from './media.png';
 
 const photos = [
   {
-    alt: `preview1`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_1.png`
+    alt: 'preview1',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_1.png`,
   },
   {
-    alt: `preview2`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_2.png`
+    alt: 'preview2',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_2.png`,
   },
   {
-    alt: `preview3`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_3.png`
+    alt: 'preview3',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_3.png`,
   },
   {
-    alt: `preview4`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_4.png`
+    alt: 'preview4',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_4.png`,
   },
   {
-    alt: `preview5`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_5.png`
+    alt: 'preview5',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_5.png`,
   },
   {
-    alt: `preview6`,
-    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_6.png`
-  }
+    alt: 'preview6',
+    src: `${process.env.PUBLIC_URL}/img/media_preview/preview_6.png`,
+  },
 ];
 
 function Gallery() {
-  const content = photos.map(photo => (
-    <Photo src={photo.src} alt={photo.alt} />
-  ));
-  return <React.Fragment>{content}</React.Fragment>;
+  const content = photos.map(photo => <Photo src={photo.src} alt={photo.alt} />);
+  return (
+    <React.Fragment>
+      {content}
+    </React.Fragment>
+  );
 }
 
 const MediaIcon = styled.img``;
@@ -66,12 +68,14 @@ const Text = styled(NavLink)`
 
 const Rail = styled.div``;
 
-export default function() {
+export default function () {
   return (
     <Media>
       <Title>
         <MediaIcon src={mediaIcon} />
-        <Text to="/followers_you_follow">5,571 Photos and videos</Text>
+        <Text to="/followers_you_follow">
+5,571 Photos and videos
+        </Text>
       </Title>
       <Rail>
         <Gallery photos={photos} />

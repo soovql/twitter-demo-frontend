@@ -1,21 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { Header } from "./Header";
-import { HeaderImage } from "./HeaderImage";
-import { Menu } from "./Menu";
-import { Grid, Col, Row } from "react-flexbox-grid";
-import TwitterFeed from "./Feed";
-import Info from "./Info";
-import Suggestions from "./Suggestions";
-import CommonUsers from "./CommonUsers";
-import Trends from "./Trends";
-import About from "./About";
-import UserMedia from "./UserMedia";
+import React from 'react';
+import styled from 'styled-components';
+import { Grid, Col, Row } from 'react-flexbox-grid';
+import { NavLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Header from './Header';
+import HeaderImage from './HeaderImage';
+import Menu from './Menu';
+import TwitterFeed from './Feed';
+import Info from './Info';
+import Suggestions from './Suggestions';
+import CommonUsers from './CommonUsers';
+import Trends from './Trends';
+import About from './About';
+import UserMedia from './UserMedia';
 
 const Profile = styled.div`
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `;
 
 const FeedTab = styled.ul`
@@ -45,7 +45,10 @@ const Tab = styled(NavLink)`
 const ProfilePage = () => (
   <React.Fragment>
     <Helmet>
-      <title>Every Interaction </title>
+      <title>
+Every Interaction
+        {' '}
+      </title>
       <meta
         name="description"
         content="The latest Tweets from Every Interaction (@EveryInteract)."
@@ -65,11 +68,15 @@ const ProfilePage = () => (
           </Col>
           <Col sm={6}>
             <FeedTab>
-              <Tab to="/EveryInteraction" exact={true}>
+              <Tab to="/EveryInteraction" exact>
                 Tweets
               </Tab>
-              <Tab to="/with_replies">Tweets & Replies</Tab>
-              <Tab to="/media">Media</Tab>
+              <Tab to="/with_replies">
+Tweets & Replies
+              </Tab>
+              <Tab to="/media">
+Media
+              </Tab>
             </FeedTab>
 
             <TwitterFeed />

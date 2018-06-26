@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { FormattedMessage } from "react-intl";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const Trends = styled.div`
   background: #fff;
@@ -23,28 +23,28 @@ const List = styled.div`
 
 const trends = [
   {
-    name: "#BringYourDogToWorkDay"
+    name: '#BringYourDogToWorkDay',
   },
   {
-    name: "#FridayFeeling",
-    count: 12100
+    name: '#FridayFeeling',
+    count: 12100,
   },
   {
-    name: "#BrexitAnniversary",
-    description: "It’s one year since the UK voted to leave the European Union"
+    name: '#BrexitAnniversary',
+    description: 'It’s one year since the UK voted to leave the European Union',
   },
   {
-    name: "HMS Queen Elizabeth",
-    count: 1036
+    name: 'HMS Queen Elizabeth',
+    count: 1036,
   },
   {
-    name: "Joe Budden",
-    count: 1036
+    name: 'Joe Budden',
+    count: 1036,
   },
   {
-    name: "Trident",
-    count: 6136
-  }
+    name: 'Trident',
+    count: 6136,
+  },
 ];
 
 const Name = styled(NavLink)`
@@ -88,7 +88,7 @@ const Count = props => (
                       other {Tweets}
                     }`}
       values={{
-        count: props.count
+        count: props.count,
       }}
     />
   </Description>
@@ -97,20 +97,36 @@ const Count = props => (
 function TrendsList() {
   const content = trends.map(trend => (
     <Trend>
-      <Name to={`/search?q=${trend.name}`}>{trend.name}</Name>
+      <Name to={`/search?q=${trend.name}`}>
+        {trend.name}
+      </Name>
       {trend.count && <Count count={trend.count} />}
-      {trend.description && <Description>{trend.description}</Description>}
+      {trend.description && (
+      <Description>
+        {trend.description}
+      </Description>
+      )}
     </Trend>
   ));
 
-  return <List>{content}</List>;
+  return (
+    <List>
+      {content}
+    </List>
+  );
 }
 
-export default function() {
+export default function () {
   return (
     <Trends>
-      <Title>United Kingdom Trends</Title> ·
-      <Change to="">Change</Change>
+      <Title>
+United Kingdom Trends
+      </Title>
+      {' '}
+·
+      <Change to="">
+Change
+      </Change>
       <TrendsList trends={trends} />
     </Trends>
   );

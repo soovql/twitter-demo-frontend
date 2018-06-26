@@ -1,12 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import iconHome from "./icons/home.svg";
-import iconMoments from "./icons/moments.svg";
-import iconNotifications from "./icons/notifications.svg";
-import iconMessages from "./icons/messages.svg";
-import twitterLogo from "./icons/logo.svg";
-import iconMagnifier from "./icons/magnifier.svg";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import iconHome from './icons/home.svg';
+import iconMoments from './icons/moments.svg';
+import iconNotifications from './icons/notifications.svg';
+import iconMessages from './icons/messages.svg';
+import twitterLogo from './icons/logo.svg';
+import iconMagnifier from './icons/magnifier.svg';
 
 const NavBar = styled.div`
   display: flex;
@@ -117,29 +117,43 @@ const ButtonTweet = styled.button`
 `;
 const Navigation = () => (
   <IconBox>
-    <StyledLink to="/EveryInteraction" exact={true}>
+    <StyledLink to="/EveryInteraction" exact>
       <img src={iconHome} alt="Icon Home" />
-      <TitleIcon>Home</TitleIcon>
+      <TitleIcon>
+Home
+      </TitleIcon>
     </StyledLink>
 
     <StyledLink to="/moments">
       <img src={iconMoments} alt="Icon Home" />
-      <TitleIcon> Moments</TitleIcon>{" "}
+      <TitleIcon>
+        {' '}
+Moments
+      </TitleIcon>
+      {' '}
     </StyledLink>
 
     <StyledLink to="/notifications">
-      <img src={iconNotifications} alt="Icon Notifications" />{" "}
-      <TitleIcon>Notifications</TitleIcon>{" "}
+      <img src={iconNotifications} alt="Icon Notifications" />
+      {' '}
+      <TitleIcon>
+Notifications
+      </TitleIcon>
+      {' '}
     </StyledLink>
 
     <StyledLink to="/messages">
       <img src={iconMessages} alt="Icon Messages" />
-      <TitleIcon> Messages</TitleIcon>{" "}
+      <TitleIcon>
+        {' '}
+Messages
+      </TitleIcon>
+      {' '}
     </StyledLink>
   </IconBox>
 );
 
-export const Header = props => (
+export default () => (
   <NavBar>
     <Navigation />
     <TwitterIcon>
@@ -151,12 +165,11 @@ export const Header = props => (
         <Button />
       </SearchBox>
       <Avatar to="/profile" title="Profile and Settings">
-        <Img
-          src={`${process.env.PUBLIC_URL}/img/avatar_small.png`}
-          alt="Small User Avatar"
-        />
+        <Img src={`${process.env.PUBLIC_URL}/img/avatar_small.png`} alt="Small User Avatar" />
       </Avatar>
-      <ButtonTweet>Tweet</ButtonTweet>
+      <ButtonTweet>
+Tweet
+      </ButtonTweet>
     </UserBox>
   </NavBar>
 );

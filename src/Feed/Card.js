@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import iconPinned from "./icons/pinned.svg";
-import commentIcon from "./icons/comments.png";
-import retweetIcon from "./icons/retweet.png";
-import likeIcon from "./icons/like.png";
-import directMessageIcon from "./icons/envelope.png";
+import React from 'react';
+import styled from 'styled-components';
+import iconPinned from './icons/pinned.svg';
+import commentIcon from './icons/comments.png';
+import retweetIcon from './icons/retweet.png';
+import likeIcon from './icons/like.png';
+import directMessageIcon from './icons/envelope.png';
 
 const Box = styled.div`
   display: flex;
@@ -128,41 +128,41 @@ const tweets = [
   {
     pinned: true,
     avatar: `${process.env.PUBLIC_URL}/img/avatar_small.png`,
-    name: "Every Interaction",
-    nickname: "@EveryInteract",
+    name: 'Every Interaction',
+    nickname: '@EveryInteract',
     image: `${process.env.PUBLIC_URL}/img/content/content_01.png`,
-    time: "• 2 Mar 2015",
+    time: '• 2 Mar 2015',
     post:
       "We’ve made some more resources for all you wonderful <a href='#design' target='_blank'>#design</a> folk <a href='https://everyinteraction.com/resources/' target='_blank'>everyinteraction.com/resources/</a> <a href='#webdesign' target='_blank'>#webdesign</a> <a href='#ui' target='_blank'>#UI</div>",
     reposts: 17,
-    likes: 47
+    likes: 47,
   },
   {
     avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
-    name: "Every Interaction",
-    nickname: "@EveryInteract",
-    time: "• 23h",
+    name: 'Every Interaction',
+    nickname: '@EveryInteract',
+    time: '• 23h',
     post:
       "Our new website concept; Taking you from… @ Every Interaction <a href='https://instagram.com/p/BNFGrfhBP3M/' target='_blank'>instagram.com/p/BNFGrfhBP3M/</a>",
     comments: 1,
     reposts: 4,
     likes: 2,
-    liked: true
+    liked: true,
   },
   {
     avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
-    name: "Every Interaction",
-    nickname: "@EveryInteract",
-    time: "• Nov 18",
+    name: 'Every Interaction',
+    nickname: '@EveryInteract',
+    time: '• Nov 18',
     preview: {
       description:
-        "Variable web fonts are coming, and will open a world of opportunities for weight use online",
+        'Variable web fonts are coming, and will open a world of opportunities for weight use online',
       image: `${process.env.PUBLIC_URL}/img/content/preview_01.png`,
-      title: "The Future of Web Fonts",
+      title: 'The Future of Web Fonts',
       text:
-        "We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com"
-    }
-  }
+        'We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com',
+    },
+  },
 ];
 export default function Tweets() {
   const content = tweets.map(tweet => (
@@ -170,20 +170,28 @@ export default function Tweets() {
       {tweet.pinned && (
         <Pinned>
           <PinnedIcon src={iconPinned} alt="Pinned Tweet Icon" />
-          <Text>Pinned Tweet</Text>
+          <Text>
+Pinned Tweet
+          </Text>
         </Pinned>
       )}
       <Box>
         <SmallUserpic src={tweet.avatar} alt="" />
         <Content>
-          <Author>{tweet.name}</Author>
-          <Nickname>{tweet.nickname}</Nickname>
-          <TimeStamp>{tweet.time}</TimeStamp>
+          <Author>
+            {tweet.name}
+          </Author>
+          <Nickname>
+            {tweet.nickname}
+          </Nickname>
+          <TimeStamp>
+            {tweet.time}
+          </TimeStamp>
           {tweet.post && (
             <Post>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: tweet.post
+                  __html: tweet.post,
                 }}
               />
             </Post>
@@ -191,12 +199,18 @@ export default function Tweets() {
           {tweet.image && <UploadedImage src={tweet.image} alt="" />}
           {tweet.preview && (
             <React.Fragment>
-              <PreviewText>{tweet.preview.description}</PreviewText>
+              <PreviewText>
+                {tweet.preview.description}
+              </PreviewText>
               <PreviewBox>
                 <PreviewImage src={tweet.preview.image} alt="" />
                 <TextWrap>
-                  <PreviewTitle>{tweet.preview.title}</PreviewTitle>
-                  <PreviewText>{tweet.preview.text}</PreviewText>
+                  <PreviewTitle>
+                    {tweet.preview.title}
+                  </PreviewTitle>
+                  <PreviewText>
+                    {tweet.preview.text}
+                  </PreviewText>
                 </TextWrap>
               </PreviewBox>
             </React.Fragment>
@@ -206,15 +220,21 @@ export default function Tweets() {
       <Social>
         <Action>
           <Icon src={commentIcon} alt="" />
-          <Counter>{tweet.comments}</Counter>
+          <Counter>
+            {tweet.comments}
+          </Counter>
         </Action>
         <Action>
           <Icon src={retweetIcon} alt="" />
-          <Counter>{tweet.reposts}</Counter>
+          <Counter>
+            {tweet.reposts}
+          </Counter>
         </Action>
         <Action>
           <Icon src={likeIcon} alt="" />
-          <Counter>{tweet.likes}</Counter>
+          <Counter>
+            {tweet.likes}
+          </Counter>
         </Action>
         <Action>
           <Icon src={directMessageIcon} alt="" />
@@ -222,5 +242,9 @@ export default function Tweets() {
       </Social>
     </Card>
   ));
-  return <React.Fragment>{content}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {content}
+    </React.Fragment>
+  );
 }

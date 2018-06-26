@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import iconTick from "./icons/tick.png";
-import iconJoined from "./icons/joined.svg";
-import iconLink from "./icons/link.svg";
-import iconLocation from "./icons/location.svg";
-import { Button } from "../Button";
+import React from 'react';
+import styled from 'styled-components';
+import iconTick from './icons/tick.png';
+import iconJoined from './icons/joined.svg';
+import iconLink from './icons/link.svg';
+import iconLocation from './icons/location.svg';
+import Button from '../Button';
 
 const UserInfo = styled.div`
   margin-top: 30px;
@@ -60,33 +60,48 @@ const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
 
-export default function() {
+export default function () {
   return (
     <UserInfo>
       <Avatar src={`${process.env.PUBLIC_URL}/img/avatar.png`} />
-      <Name>Every Interaction</Name>
+      <Name>
+Every Interaction
+      </Name>
       <img src={iconTick} title="Verified account" alt="Approved User Tick" />
-      <Nickname>@EveryInteract</Nickname>
+      <Nickname>
+@EveryInteract
+      </Nickname>
       <Description>
-        UX Design studio focussed problem solving creativity. Design to us is
-        how can we make things *work* amazing.
+        UX Design studio focussed problem solving creativity. Design to us is how can we make things
+        *work* amazing.
       </Description>
       <About>
         <ExtrasInfo>
           <img src={iconLocation} alt="" />
-          <ExtrasContent>London, UK </ExtrasContent>
+          <ExtrasContent>
+London, UK
+            {' '}
+          </ExtrasContent>
         </ExtrasInfo>
         <ExtrasInfo>
           <img src={iconLink} alt="" />
-          <ExtrasContent>everyinteraction.com</ExtrasContent>
+          <ExtrasContent>
+everyinteraction.com
+          </ExtrasContent>
         </ExtrasInfo>
         <ExtrasInfo>
           <img src={iconJoined} alt="" />
-          <ExtrasContent>Joined May 2008</ExtrasContent>
+          <ExtrasContent>
+Joined May 2008
+          </ExtrasContent>
         </ExtrasInfo>
       </About>
-      <Button primary>Tweet to</Button>
-      <Button primary>Message</Button>
+      <Button white>
+Tweet to
+      </Button>
+      <Button white>
+Message
+      </Button>
     </UserInfo>
   );
 }

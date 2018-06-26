@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Card from "./Card";
+import React from 'react';
+import styled from 'styled-components';
+import Card from './Card';
 
 const Feed = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const Feed = styled.div`
   background: #fff;
 `;
 
-export default function() {
+export default function () {
   return (
     <Feed>
       <Card />

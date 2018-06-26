@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import ProfilePage from "./ProfilePage";
-import { IntlProvider } from "react-intl";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
+import ProfilePage from './ProfilePage';
 
 class App extends Component {
   render() {

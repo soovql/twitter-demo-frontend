@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import followersIcon from "./icons/followers.png";
-import { NavLink, Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink, Link } from 'react-router-dom';
+import followersIcon from './icons/followers.png';
 
 const Users = styled.div`
   padding-top: 19px;
@@ -36,35 +36,35 @@ const Title = styled.div`
 
 const users = [
   {
-    name: `username1`,
-    nickname: `nickname1`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`
+    name: 'username1',
+    nickname: 'nickname1',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`,
   },
   {
-    name: `username2`,
-    nickname: `nickname2`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`
+    name: 'username2',
+    nickname: 'nickname2',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`,
   },
   {
-    name: `username3`,
-    nickname: `nickname3`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`
+    name: 'username3',
+    nickname: 'nickname3',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`,
   },
   {
-    name: `username4`,
-    nickname: `nickname4`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`
+    name: 'username4',
+    nickname: 'nickname4',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`,
   },
   {
-    name: `username5`,
-    nickname: `nickname5`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`
+    name: 'username5',
+    nickname: 'nickname5',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`,
   },
   {
-    name: `username6`,
-    nickname: `nickname6`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`
-  }
+    name: 'username6',
+    nickname: 'nickname6',
+    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`,
+  },
 ];
 
 function UserList() {
@@ -73,15 +73,21 @@ function UserList() {
       <Icon src={user.src} alt={user.name} />
     </Link>
   ));
-  return <React.Fragment>{content}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {content}
+    </React.Fragment>
+  );
 }
 
-export default function() {
+export default function () {
   return (
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to="/followers_you_follow">6 Followers you know</Text>
+        <Text to="/followers_you_follow">
+6 Followers you know
+        </Text>
       </Title>
       <CommonUsers>
         <UserList users={users} />

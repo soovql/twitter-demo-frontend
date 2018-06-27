@@ -7,8 +7,8 @@ export default () => (
   <IntlProvider locale="en">
     <Router>
       <React.Fragment>
-        <Redirect from="/" to="/EveryInteraction" />
         <Route path="/:username" component={ProfilePage} />
+        <Redirect exact from="/" to="/EveryInteraction" />
       </React.Fragment>
     </Router>
   </IntlProvider>

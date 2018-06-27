@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Feed from '../Feed';
 
@@ -28,37 +28,35 @@ const FeedTab = styled.ul`
 `;
 
 export default ({ username }) => (
-  <Router>
-    <FeedTab>
-      <Tab exact to={`/${username}`}>
-        Tweets
-      </Tab>
-      <Tab exact to={`/${username}/with_replies`}>
-        Tweets & Replies
-      </Tab>
-      <Tab exact to={`/${username}/media`}>
-        Media
-      </Tab>
+  <FeedTab>
+    <Tab exact to={`/${username}`}>
+      Tweets
+    </Tab>
+    <Tab exact to={`/${username}/with_replies`}>
+      Tweets & Replies
+    </Tab>
+    <Tab exact to={`/${username}/media`}>
+      Media
+    </Tab>
 
-      <Route exact path={`/${username}`} render={() => <Feed />} />
-      <Route
-        exact
-        path={`/${username}/with_replies`}
-        render={() => (
-          <p>
+    <Route exact path={`/${username}`} render={() => <Feed />} />
+    <Route
+      exact
+      path={`/${username}/with_replies`}
+      render={() => (
+        <p>
 with replies
-          </p>
-        )}
-      />
-      <Route
-        exact
-        path={`/${username}/media`}
-        render={() => (
-          <p>
+        </p>
+      )}
+    />
+    <Route
+      exact
+      path={`/${username}/media`}
+      render={() => (
+        <p>
 media
-          </p>
-        )}
-      />
-    </FeedTab>
-  </Router>
+        </p>
+      )}
+    />
+  </FeedTab>
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import { Helmet } from 'react-helmet';
 import Header from './Header';
@@ -48,51 +48,47 @@ Every Interaction
                 <CommonUsers username={username} />
                 <UserMedia username={username} />
               </Col>
-              <Router>
-                <Col sm={6}>
-                  <Router>
-                    <React.Fragment>
-                      <Route path={`/${username}`} render={() => <Content username={username} />} />
-                      <Route
-                        exact
-                        path={`/${username}/following`}
-                        render={() => (
-                          <p>
+
+              <Col sm={6}>
+                <Route path={`/${username}`} render={() => <Content username={username} />} />
+                <Route
+                  exact
+                  path={`/${username}/following`}
+                  render={() => (
+                    <p>
 following
-                          </p>
-                        )}
-                      />
-                      <Route
-                        exact
-                        path={`/${username}/followers`}
-                        render={() => (
-                          <p>
+                    </p>
+                  )}
+                />
+                <Route
+                  exact
+                  path={`/${username}/followers`}
+                  render={() => (
+                    <p>
 followers
-                          </p>
-                        )}
-                      />
-                      <Route
-                        exact
-                        path={`/${username}/likes`}
-                        render={() => (
-                          <p>
+                    </p>
+                  )}
+                />
+                <Route
+                  exact
+                  path={`/${username}/likes`}
+                  render={() => (
+                    <p>
 likes
-                          </p>
-                        )}
-                      />
-                      <Route
-                        exact
-                        path={`/${username}/lists`}
-                        render={() => (
-                          <p>
+                    </p>
+                  )}
+                />
+                <Route
+                  exact
+                  path={`/${username}/lists`}
+                  render={() => (
+                    <p>
 lists
-                          </p>
-                        )}
-                      />
-                    </React.Fragment>
-                  </Router>
-                </Col>
-              </Router>
+                    </p>
+                  )}
+                />
+              </Col>
+
               <Col sm={3}>
                 <Suggestions />
                 <Trends />

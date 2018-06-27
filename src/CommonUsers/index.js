@@ -36,40 +36,46 @@ const Title = styled.div`
 
 const users = [
   {
-    name: 'username1',
-    nickname: 'nickname1',
+    id: 1,
+    name: 'Chris Kew',
+    nickname: '/chriskew',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`,
   },
   {
-    name: 'username2',
-    nickname: 'nickname2',
+    id: 2,
+    name: 'Adam Blakemore',
+    nickname: '/adamCBlakemore',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`,
   },
   {
-    name: 'username3',
-    nickname: 'nickname3',
+    id: 3,
+    name: 'Jon Darke',
+    nickname: '/darkejon',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`,
   },
   {
-    name: 'username4',
-    nickname: 'nickname4',
+    id: 4,
+    name: 'Inkbot Design',
+    nickname: '/inkbotDesign',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`,
   },
   {
-    name: 'username5',
-    nickname: 'nickname5',
+    id: 5,
+    name: 'Chris Roberts',
+    nickname: '/designtestlearn',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`,
   },
   {
-    name: 'username6',
-    nickname: 'nickname6',
+    id: 6,
+    name: 'Sophie Delrot',
+    nickname: '/sophiedelrot',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`,
   },
 ];
 
 function UserList() {
   const content = users.map(user => (
-    <Link to={user.nickname} title={user.name}>
+    <Link key={user.id} to={user.nickname}>
       <Icon src={user.src} alt={user.name} />
     </Link>
   ));
@@ -80,12 +86,12 @@ function UserList() {
   );
 }
 
-export default function () {
+export default function ({ username }) {
   return (
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to="/followers_you_follow">
+        <Text to={`/${username}/followers_you_follow`}>
 6 Followers you know
         </Text>
       </Title>

@@ -126,6 +126,7 @@ const Action = styled.div`
 
 const tweets = [
   {
+    id: 1,
     pinned: true,
     avatar: `${process.env.PUBLIC_URL}/img/avatar_small.png`,
     name: 'Every Interaction',
@@ -138,6 +139,7 @@ const tweets = [
     likes: 47,
   },
   {
+    id: 2,
     avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
     name: 'Every Interaction',
     nickname: '@EveryInteract',
@@ -150,6 +152,7 @@ const tweets = [
     liked: true,
   },
   {
+    id: 3,
     avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
     name: 'Every Interaction',
     nickname: '@EveryInteract',
@@ -166,7 +169,7 @@ const tweets = [
 ];
 export default function Tweets() {
   const content = tweets.map(tweet => (
-    <Card>
+    <Card key={tweet.id}>
       {tweet.pinned && (
         <Pinned>
           <PinnedIcon src={iconPinned} alt="Pinned Tweet Icon" />

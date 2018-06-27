@@ -61,26 +61,29 @@ const Block = styled.div`
 
 const users = [
   {
+    id: 1,
     name: 'AppleInsider',
-    nickname: '@appleinsider',
+    nickname: '/appleinsider',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_1.png`,
   },
   {
+    id: 2,
     tick: true,
     name: 'Creode',
-    nickname: '@Creode',
+    nickname: '/Creode',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_2.png`,
   },
   {
+    id: 3,
     name: 'Epiphany Search',
-    nickname: '@Epiphany',
+    nickname: '/Epiphany',
     src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_3.png`,
   },
 ];
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion>
+    <Suggestion key={user.id}>
       <Link to={user.nickname}>
         <Avatar src={user.src} />
       </Link>

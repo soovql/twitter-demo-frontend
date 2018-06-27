@@ -29,23 +29,23 @@ export default function () {
       <Copyright>
 © 2018 Twitter
       </Copyright>
-      <StyledLink to="/about">
-About
+      <StyledLink to="/about" exact>
+        About
       </StyledLink>
-      <StyledLink to="/support">
-Help Center
+      <StyledLink exact to="/support">
+        Help Center
       </StyledLink>
-      <StyledLink to="/tos">
-Terms
+      <StyledLink exact to="/tos">
+        Terms
       </StyledLink>
-      <StyledLink to="/privacy">
-Privacy policy
+      <StyledLink exact to="/privacy">
+        Privacy policy
       </StyledLink>
-      <StyledLink to="/cookies">
-Cookies
+      <StyledLink exact to="/cookies">
+        Cookies
       </StyledLink>
-      <StyledLink to="/ads">
-Ads info
+      <StyledLink exact to="/ads">
+        Ads info
       </StyledLink>
     </Block>
   );

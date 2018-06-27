@@ -48,7 +48,6 @@ const StyledLink = styled(NavLink)`
   padding: 0 11px 8px;
   border-bottom: 2px solid #fff;
   text-align: center;
-
   &:hover {
     border-bottom: 2px solid #1da1f2;
   }
@@ -63,13 +62,13 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export default () => (
+export default ({ username }) => (
   <MenuNav>
     <Grid>
       <Row>
         <Col sm={6} smOffset={3}>
           <Statistics>
-            <StyledLink to="/EveryInteraction" exact>
+            <StyledLink exact to={`/${username}`}>
               <Name>
 Tweets
               </Name>
@@ -78,7 +77,7 @@ Tweets
               </Count>
             </StyledLink>
 
-            <StyledLink to="/following">
+            <StyledLink exact to={`/${username}/following`}>
               <Name>
 Following
               </Name>
@@ -87,7 +86,7 @@ Following
               </Count>
             </StyledLink>
 
-            <StyledLink to="/followers">
+            <StyledLink exact to={`/${username}/followers`}>
               <Name>
 Followers
               </Name>
@@ -96,7 +95,7 @@ Followers
               </Count>
             </StyledLink>
 
-            <StyledLink to="/likes">
+            <StyledLink exact to={`/${username}/likes`}>
               <Name>
 Likes
               </Name>
@@ -105,7 +104,7 @@ Likes
               </Count>
             </StyledLink>
 
-            <StyledLink to="/lists">
+            <StyledLink to={`/${username}/lists`}>
               <Name>
 Lists
               </Name>
@@ -117,7 +116,9 @@ Lists
         </Col>
         <Col sm={3}>
           <FollowNav>
-            <Button />
+            <Button>
+Follow
+            </Button>
             <More />
           </FollowNav>
         </Col>

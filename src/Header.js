@@ -117,7 +117,7 @@ const ButtonTweet = styled.button`
 `;
 const Navigation = () => (
   <IconBox>
-    <StyledLink to="/EveryInteraction" exact>
+    <StyledLink exact to="/">
       <img src={iconHome} alt="Icon Home" />
       <TitleIcon>
 Home

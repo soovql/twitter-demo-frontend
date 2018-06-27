@@ -8,10 +8,8 @@ const Feed = styled.div`
   background: #fff;
 `;
 
-export default function () {
-  return (
-    <Feed>
-      <Card />
-    </Feed>
-  );
-}
+export default () => (
+  <Feed>
+    <Card />
+  </Feed>
+);

@@ -41,18 +41,18 @@ const IconPeople = styled.img`
   padding-right: 6px;
 `;
 
-export default props => (
+export default () => (
   <ContentBlock>
     <Title>
       <Text>
         {' '}
 Who to follow&nbsp;
       </Text>
-·
+      ·
       <Extra to="">
 &nbsp;Refresh&nbsp;
       </Extra>
-·
+      ·
       <Extra to="/who_to_follow/suggestions">
 &nbsp;View All
       </Extra>

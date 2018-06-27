@@ -5,33 +5,39 @@ import mediaIcon from './media.png';
 
 const photos = [
   {
+    id: 1,
     alt: 'preview1',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_1.png`,
   },
   {
+    id: 2,
     alt: 'preview2',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_2.png`,
   },
   {
+    id: 3,
     alt: 'preview3',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_3.png`,
   },
   {
+    id: 4,
     alt: 'preview4',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_4.png`,
   },
   {
+    id: 5,
     alt: 'preview5',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_5.png`,
   },
   {
+    id: 6,
     alt: 'preview6',
     src: `${process.env.PUBLIC_URL}/img/media_preview/preview_6.png`,
   },
 ];
 
 function Gallery() {
-  const content = photos.map(photo => <Photo src={photo.src} alt={photo.alt} />);
+  const content = photos.map(photo => <Photo key={photo.id} src={photo.src} alt={photo.alt} />);
   return (
     <React.Fragment>
       {content}
@@ -68,12 +74,12 @@ const Text = styled(NavLink)`
 
 const Rail = styled.div``;
 
-export default function () {
+export default function ({ username }) {
   return (
     <Media>
       <Title>
         <MediaIcon src={mediaIcon} />
-        <Text to="/followers_you_follow">
+        <Text to={`/${username}/media`}>
 5,571 Photos and videos
         </Text>
       </Title>

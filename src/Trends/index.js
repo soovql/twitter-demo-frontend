@@ -23,25 +23,31 @@ const List = styled.div`
 
 const trends = [
   {
+    id: 1,
     name: '#BringYourDogToWorkDay',
   },
   {
+    id: 2,
     name: '#FridayFeeling',
     count: 12100,
   },
   {
+    id: 3,
     name: '#BrexitAnniversary',
     description: 'It’s one year since the UK voted to leave the European Union',
   },
   {
+    id: 4,
     name: 'HMS Queen Elizabeth',
     count: 1036,
   },
   {
+    id: 5,
     name: 'Joe Budden',
     count: 1036,
   },
   {
+    id: 6,
     name: 'Trident',
     count: 6136,
   },
@@ -79,7 +85,7 @@ const Change = styled(NavLink)`
   }
 `;
 
-const Count = props => (
+const Count = ({ count }) => (
   <Description>
     <FormattedMessage
       id="tweets"
@@ -88,7 +94,7 @@ const Count = props => (
                       other {Tweets}
                     }`}
       values={{
-        count: props.count,
+        count,
       }}
     />
   </Description>
@@ -96,7 +102,7 @@ const Count = props => (
 
 function TrendsList() {
   const content = trends.map(trend => (
-    <Trend>
+    <Trend key={trend.id}>
       <Name to={`/search?q=${trend.name}`}>
         {trend.name}
       </Name>

@@ -60,16 +60,17 @@ const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
 
-export default function () {
+export default function ({ username }) {
   return (
     <UserInfo>
       <Avatar src={`${process.env.PUBLIC_URL}/img/avatar.png`} />
       <Name>
-Every Interaction
+        {username}
       </Name>
       <img src={iconTick} title="Verified account" alt="Approved User Tick" />
       <Nickname>
-@EveryInteract
+        @
+        {username}
       </Nickname>
       <Description>
         UX Design studio focussed problem solving creativity. Design to us is how can we make things

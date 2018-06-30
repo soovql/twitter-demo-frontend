@@ -21,6 +21,7 @@ const More = styled.div`
   width: 14px;
   height: 14px;
   display: inline-block;
+  margin-left: 8px;
 `;
 
 const Statistics = styled.ul`

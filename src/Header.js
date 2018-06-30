@@ -99,6 +99,8 @@ const Avatar = styled(NavLink)`
 
 const Img = styled.img`
   border-radius: 50%;
+  height: 32px;
+  width: 32px;
 `;
 
 const ButtonTweet = styled.button`
@@ -117,7 +119,7 @@ const ButtonTweet = styled.button`
 `;
 const Navigation = () => (
   <IconBox>
-    <StyledLink exact to="/">
+    <StyledLink to="/">
       <img src={iconHome} alt="Icon Home" />
       <TitleIcon>
 Home
@@ -165,7 +167,7 @@ export default () => (
         <Button />
       </SearchBox>
       <Avatar to="/profile" title="Profile and Settings">
-        <Img src={`${process.env.PUBLIC_URL}/img/avatar_small.png`} alt="Small User Avatar" />
+        <Img src={`${process.env.PUBLIC_URL}/users/everyinteract_400x400.png`} alt="User Avatar" />
       </Avatar>
       <ButtonTweet>
 Tweet

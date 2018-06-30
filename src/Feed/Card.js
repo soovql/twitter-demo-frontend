@@ -167,7 +167,7 @@ const tweets = [
     },
   },
 ];
-export default function Tweets() {
+export default function Tweets({ userData }) {
   const content = tweets.map(tweet => (
     <Card key={tweet.id}>
       {tweet.pinned && (
@@ -179,7 +179,7 @@ Pinned Tweet
         </Pinned>
       )}
       <Box>
-        <SmallUserpic src={tweet.avatar} alt="" />
+        <SmallUserpic src={userData.avatar} alt="" />
         <Content>
           <Author>
             {tweet.name}

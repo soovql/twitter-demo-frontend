@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Feed from '../Feed';
 
@@ -27,36 +27,37 @@ const FeedTab = styled.ul`
   border-bottom: 1px solid lightgrey;
 `;
 
-export default ({ username }) => (
+export default ({ userData }) => (
   <FeedTab>
-    <Tab exact to={`/${username}`}>
+    <Tab exact to={`/${userData.nickname}`}>
       Tweets
     </Tab>
-    <Tab exact to={`/${username}/with_replies`}>
+    <Tab exact to={`/${userData.nickname}/with_replies`}>
       Tweets & Replies
     </Tab>
-    <Tab exact to={`/${username}/media`}>
+    <Tab exact to={`/${userData.nickname}/media`}>
       Media
     </Tab>
-
-    <Route exact path={`/${username}`} render={() => <Feed />} />
-    <Route
-      exact
-      path={`/${username}/with_replies`}
-      render={() => (
-        <p>
+    <Switch>
+      <Route
+        exact
+        path={`/${userData.nickname}/with_replies`}
+        render={() => (
+          <p>
 with replies
-        </p>
-      )}
-    />
-    <Route
-      exact
-      path={`/${username}/media`}
-      render={() => (
-        <p>
+          </p>
+        )}
+      />
+      <Route
+        exact
+        path={`/${userData.nickname}/media`}
+        render={() => (
+          <p>
 media
-        </p>
-      )}
-    />
+          </p>
+        )}
+      />
+      <Route path={`/${userData.nickname}`} render={() => <Feed userData={userData} />} />
+    </Switch>
   </FeedTab>
 );

@@ -4,9 +4,13 @@ import { Link, NavLink } from 'react-router-dom';
 import Button from '../Button';
 import iconTick from './icons/tick.png';
 import iconDelete from './icons/delete.png';
+import userList from '../data/users';
 
 const Avatar = styled.img`
   align-self: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 `;
 
 const Name = styled(NavLink)`
@@ -59,41 +63,22 @@ const Block = styled.div`
   overflow: hidden;
 `;
 
-const users = [
-  {
-    id: 1,
-    name: 'AppleInsider',
-    nickname: '/appleinsider',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_1.png`,
-  },
-  {
-    id: 2,
-    tick: true,
-    name: 'Creode',
-    nickname: '/Creode',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_2.png`,
-  },
-  {
-    id: 3,
-    name: 'Epiphany Search',
-    nickname: '/Epiphany',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_3.png`,
-  },
-];
+const users = [userList[1], userList[2], userList[3]];
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion key={user.id}>
+    <Suggestion key={user.nickname}>
       <Link to={user.nickname}>
-        <Avatar src={user.src} />
+        <Avatar src={user.avatar} />
       </Link>
       <Block>
         <User>
-          <Name to={user.nickname}>
+          <Name to={`/${user.nickname}`}>
             {user.name}
           </Name>
-          {user.tick && <Tick src={iconTick} />}
+          {user.verified && <Tick src={iconTick} />}
           <NickName>
+            @
             {user.nickname}
           </NickName>
         </User>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import { Helmet } from 'react-helmet';
 import Header from './Header';
@@ -13,6 +13,7 @@ import Trends from './Trends';
 import About from './About';
 import UserMedia from './UserMedia';
 import Menu from './Menu';
+import users from './data/users';
 
 const Profile = styled.div`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -25,6 +26,7 @@ const MenuNav = styled.div`
 
 export default ({ match }) => {
   const { username } = match.params;
+  const userData = users.find(user => user.nickname === username);
   return (
     <React.Fragment>
       <Helmet>
@@ -38,57 +40,56 @@ Every Interaction
       </Helmet>
       <Profile>
         <Header />
-        <HeaderImage />
+        <HeaderImage userData={userData} />
         <Menu username={username} />
         <MenuNav>
           <Grid>
             <Row>
               <Col sm={3}>
-                <Info username={username} />
-                <CommonUsers username={username} />
+                <Info userData={userData} />
+                <CommonUsers userData={userData} />
                 <UserMedia username={username} />
               </Col>
-
               <Col sm={6}>
-                <Route path={`/${username}`} render={() => <Content username={username} />} />
-                <Route
-                  exact
-                  path={`/${username}/following`}
-                  render={() => (
-                    <p>
+                <Switch>
+                  <Route
+                    exact
+                    path={`/${username}/following`}
+                    render={() => (
+                      <p>
 following
-                    </p>
-                  )}
-                />
-                <Route
-                  exact
-                  path={`/${username}/followers`}
-                  render={() => (
-                    <p>
+                      </p>
+                    )}
+                  />
+                  <Route
+                    exact
+                    path={`/${username}/followers`}
+                    render={() => (
+                      <p>
 followers
-                    </p>
-                  )}
-                />
-                <Route
-                  exact
-                  path={`/${username}/likes`}
-                  render={() => (
-                    <p>
+                      </p>
+                    )}
+                  />
+                  <Route
+                    path={`/${username}/likes`}
+                    render={() => (
+                      <p>
 likes
-                    </p>
-                  )}
-                />
-                <Route
-                  exact
-                  path={`/${username}/lists`}
-                  render={() => (
-                    <p>
+                      </p>
+                    )}
+                  />
+                  <Route
+                    exact
+                    path={`/${username}/lists`}
+                    render={() => (
+                      <p>
 lists
-                    </p>
-                  )}
-                />
+                      </p>
+                    )}
+                  />
+                  <Route path={`/${username}`} render={() => <Content userData={userData} />} />
+                </Switch>
               </Col>
-
               <Col sm={3}>
                 <Suggestions />
                 <Trends />

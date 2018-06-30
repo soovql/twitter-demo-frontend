@@ -5,7 +5,6 @@ export default styled.button`
   padding: 10px 15px;
   outline: none;
   border-radius: 100px;
-  margin-right: 18px;
   color: ${({ white }) => (white ? '#fff' : '#1DA1F2')};
   border: ${({ white }) => (white ? 'none' : '2px solid #1DA1F2')};
 `;

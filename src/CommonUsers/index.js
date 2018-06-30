@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
 import followersIcon from './icons/followers.png';
+import userList from '../data/users';
 
 const Users = styled.div`
   padding-top: 19px;
@@ -27,6 +28,8 @@ const Text = styled(NavLink)`
 
 const Icon = styled.img`
   padding-left: 5px;
+  height: 48px;
+  width: 48px;
 `;
 
 const Title = styled.div`
@@ -34,49 +37,12 @@ const Title = styled.div`
   padding-bottom: 8px;
 `;
 
-const users = [
-  {
-    id: 1,
-    name: 'Chris Kew',
-    nickname: '/chriskew',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`,
-  },
-  {
-    id: 2,
-    name: 'Adam Blakemore',
-    nickname: '/adamCBlakemore',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`,
-  },
-  {
-    id: 3,
-    name: 'Jon Darke',
-    nickname: '/darkejon',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`,
-  },
-  {
-    id: 4,
-    name: 'Inkbot Design',
-    nickname: '/inkbotDesign',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`,
-  },
-  {
-    id: 5,
-    name: 'Chris Roberts',
-    nickname: '/designtestlearn',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`,
-  },
-  {
-    id: 6,
-    name: 'Sophie Delrot',
-    nickname: '/sophiedelrot',
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`,
-  },
-];
+const users = [userList[4], userList[5], userList[6], userList[7], userList[8], userList[9]];
 
 function UserList() {
   const content = users.map(user => (
     <Link key={user.id} to={user.nickname}>
-      <Icon src={user.src} alt={user.name} />
+      <Icon src={user.avatar} alt={user.name} />
     </Link>
   ));
   return (
@@ -86,12 +52,12 @@ function UserList() {
   );
 }
 
-export default function ({ username }) {
+export default function ({ userData }) {
   return (
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to={`/${username}/followers_you_follow`}>
+        <Text to={`/${userData.nickname}/followers_you_follow`}>
 6 Followers you know
         </Text>
       </Title>

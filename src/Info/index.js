@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import iconTick from './icons/tick.png';
 import iconJoined from './icons/joined.svg';
@@ -16,7 +17,6 @@ const Name = styled.div`
   font-size: 22px;
   line-height: 22px;
   font-weight: bold;
-  float: left;
   padding-right: 6px;
 `;
 
@@ -32,20 +32,32 @@ const Description = styled.p`
   color: 14171a;
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
 const Avatar = styled.img`
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: contain;
   height: 172px;
   width: 172px;
-  position: absolute;
+  position: fixed;
   z-index: 2;
-  left: 5%;
-  top: -67%;
+  top: 265px;
 `;
 
 const About = styled.ul`
   padding: 0;
+`;
+
+const Url = styled(NavLink)`
+  color: #1da1f2;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ExtrasInfo = styled.li`
@@ -60,49 +72,60 @@ const ExtrasContent = styled.div`
   padding-left: 6px;
 `;
 
-export default function ({ username }) {
-  return (
-    <UserInfo>
-      <Avatar src={`${process.env.PUBLIC_URL}/img/avatar.png`} />
-      <Name>
-        {username}
-      </Name>
-      <img src={iconTick} title="Verified account" alt="Approved User Tick" />
-      <Nickname>
-        @
-        {username}
-      </Nickname>
-      <Description>
-        UX Design studio focussed problem solving creativity. Design to us is how can we make things
-        *work* amazing.
-      </Description>
-      <About>
-        <ExtrasInfo>
-          <img src={iconLocation} alt="" />
-          <ExtrasContent>
-London, UK
+const Tick = styled.img`
+  padding-left: 5px;
+  vertical-align: middle;
+`;
+export default ({ userData }) => (
+  <UserInfo>
+    <Avatar src={userData.avatar} />
+
+    <Name>
+      {userData.name}
+      {userData.verified && (
+        <Tick src={iconTick} title="Verified account" alt="Approved User Tick" />
+      )}
+    </Name>
+
+    <Nickname>
+      @
+      {userData.nickname}
+    </Nickname>
+    <Description>
+      {userData.about}
+    </Description>
+    <About>
+      <ExtrasInfo>
+        <img src={iconLocation} alt="" />
+        <ExtrasContent>
+          {userData.location}
+        </ExtrasContent>
+      </ExtrasInfo>
+      <ExtrasInfo>
+        <img src={iconLink} alt="" />
+        <ExtrasContent>
+          <Url to={userData.url}>
             {' '}
-          </ExtrasContent>
-        </ExtrasInfo>
-        <ExtrasInfo>
-          <img src={iconLink} alt="" />
-          <ExtrasContent>
-everyinteraction.com
-          </ExtrasContent>
-        </ExtrasInfo>
-        <ExtrasInfo>
-          <img src={iconJoined} alt="" />
-          <ExtrasContent>
-Joined May 2008
-          </ExtrasContent>
-        </ExtrasInfo>
-      </About>
+            {userData.url}
+          </Url>
+        </ExtrasContent>
+      </ExtrasInfo>
+      <ExtrasInfo>
+        <img src={iconJoined} alt="" />
+        <ExtrasContent>
+          {userData.joined}
+        </ExtrasContent>
+      </ExtrasInfo>
+    </About>
+    <Buttons>
       <Button white>
 Tweet to
       </Button>
+      {userData.followed && (
       <Button white>
 Message
       </Button>
-    </UserInfo>
-  );
-}
+      )}
+    </Buttons>
+  </UserInfo>
+);

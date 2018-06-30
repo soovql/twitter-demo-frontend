@@ -66,7 +66,7 @@ const SearchBox = styled.form`
   border: 1px solid #e6ecf0;
   box-sizing: border-box;
   border-radius: 100px;
-  padding: 9px 132px 8px 11px;
+  padding: 9px 10px 8px 11px;
   max-width: 220px;
   font-size: 12px;
   line-height: 14px;

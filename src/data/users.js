@@ -33,6 +33,7 @@ export default [
     header: `${process.env.PUBLIC_URL}/users/adamcblakemore_header.jpg`,
     about: 'All round creative-type person. Designer @CygnusDesign.',
     location: 'UK',
+    verified: true,
     url: 'behance.net/adamblakemore',
     joined: 'Joined October 2012',
   },

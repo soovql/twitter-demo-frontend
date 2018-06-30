@@ -37,16 +37,6 @@ const Buttons = styled.div`
   justify-content: space-evenly;
 `;
 
-const Avatar = styled.img`
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 172px;
-  width: 172px;
-  position: fixed;
-  z-index: 2;
-  top: 265px;
-`;
 
 const About = styled.ul`
   padding: 0;
@@ -78,7 +68,6 @@ const Tick = styled.img`
 `;
 export default ({ userData }) => (
   <UserInfo>
-    <Avatar src={userData.avatar} />
 
     <Name>
       {userData.name}

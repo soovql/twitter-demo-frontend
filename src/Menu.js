@@ -63,13 +63,28 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export default ({ username }) => (
+const Avatar = styled.img`
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 172px;
+  width: 172px;
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  top: 260px;
+`;
+
+export default ({ userData }) => (
   <MenuNav>
     <Grid>
       <Row>
-        <Col sm={6} smOffset={3}>
+        <Col sm={3}>
+          <Avatar src={userData.avatar} />
+        </Col>
+        <Col sm={6}>
           <Statistics>
-            <StyledLink exact to={`/${username}`}>
+            <StyledLink exact to={`/${userData.nickname}`}>
               <Name>
 Tweets
               </Name>
@@ -78,7 +93,7 @@ Tweets
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${username}/following`}>
+            <StyledLink exact to={`/${userData.nickname}/following`}>
               <Name>
 Following
               </Name>
@@ -87,7 +102,7 @@ Following
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${username}/followers`}>
+            <StyledLink exact to={`/${userData.nickname}/followers`}>
               <Name>
 Followers
               </Name>
@@ -96,7 +111,7 @@ Followers
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${username}/likes`}>
+            <StyledLink exact to={`/${userData.nickname}/likes`}>
               <Name>
 Likes
               </Name>
@@ -105,7 +120,7 @@ Likes
               </Count>
             </StyledLink>
 
-            <StyledLink to={`/${username}/lists`}>
+            <StyledLink to={`/${userData.nickname}/lists`}>
               <Name>
 Lists
               </Name>

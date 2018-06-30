@@ -41,7 +41,7 @@ Every Interaction
       <Profile>
         <Header />
         <HeaderImage userData={userData} />
-        <Menu username={username} />
+        <Menu userData={userData} />
         <MenuNav>
           <Grid>
             <Row>

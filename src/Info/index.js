@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Moment from 'react-moment';
+import { format } from 'date-fns';
 import iconTick from './icons/tick.png';
 import iconJoined from './icons/joined.svg';
 import iconLink from './icons/link.svg';
@@ -30,6 +30,9 @@ const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
   color: #14171a;
+  p {
+    margin: 0;
+  }
 `;
 
 const Buttons = styled.div`
@@ -105,10 +108,7 @@ export default ({ userData }) => (
         <img src={iconJoined} alt="" />
         <ExtrasContent>
           Joined
-          {' '}
-          <Moment format="MMMM YYYY">
-            {userData.created_at}
-          </Moment>
+          {format(userData.created_at, ' MMMM YYYY ')}
         </ExtrasContent>
       </ExtrasInfo>
     </About>

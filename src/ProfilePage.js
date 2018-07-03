@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 import { Grid, Col, Row } from 'react-flexbox-grid';
@@ -26,25 +25,14 @@ const MenuNav = styled.div`
 export default class ProfilePage extends React.Component {
   state = {
     userData: [],
-    //    trendsData: [],
+    //    trendsData: [],  // trends (not a json object)
   };
 
   componentDidMount() {
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
-    // // fetch for multiple urls incase we have trends and stuff
-    // Promise.all([
-    //   fetch(`${hostname}/api/v1/accounts/1?access_token=${secretCode}`),
-    //   // acount data
-    //   fetch(`${hostname}/api/v1/trends`),
-    //   // trends (not a json object)
-    // ])
-    //   .then(([response1, response2]) => Promise.all([response1.json(), response2]))
-    //   .then(([data1, data2]) => this.setState({
-    //     userData: data1,
-    //     trendsData: data2,
-    //   }));
 
+    // fetch user profile data
     fetch(`${hostname}/api/v1/accounts/1?access_token=${secretCode}`)
       .then(response => response.json())
       .then(data => this.setState({ userData: data }));
@@ -52,6 +40,7 @@ export default class ProfilePage extends React.Component {
 
   render() {
     const { userData } = this.state;
+
     return (
       <React.Fragment>
         <Helmet>
@@ -85,7 +74,7 @@ following
                     />
                     <Route
                       exact
-                      path="/$userData.username/followers"
+                      path={`/${userData.username}/followers`}
                       render={() => (
                         <p>
 followers
@@ -111,7 +100,11 @@ lists
                     />
                     <Route
                       path={`/${userData.username}`}
-                      render={() => <Content userData={userData} />}
+                      render={() => (
+                        <Content
+                          userData={userData}
+                        />
+                      )}
                     />
                   </Switch>
                 </Col>

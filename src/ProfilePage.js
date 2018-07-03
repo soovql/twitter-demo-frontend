@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 import { Grid, Col, Row } from 'react-flexbox-grid';
@@ -13,7 +14,6 @@ import Trends from './Trends';
 import About from './About';
 import UserMedia from './UserMedia';
 import Menu from './Menu';
-import users from './data/users';
 
 const Profile = styled.div`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -23,82 +23,108 @@ const MenuNav = styled.div`
   padding-top: 9px;
   margin-bottom: 8px;
 `;
+export default class ProfilePage extends React.Component {
+  state = {
+    userData: [],
+    //    trendsData: [],
+  };
 
-export default ({ match }) => {
-  const { username } = match.params;
-  const userData = users.find(user => user.nickname === username);
-  return (
-    <React.Fragment>
-      <Helmet>
-        <title>
-Every Interaction
-        </title>
-        <meta
-          name="description"
-          content="The latest Tweets from Every Interaction (@EveryInteract)."
-        />
-      </Helmet>
-      <Profile>
-        <Header />
-        <HeaderImage userData={userData} />
-        <Menu userData={userData} />
-        <MenuNav>
-          <Grid>
-            <Row>
-              <Col sm={3}>
-                <Info userData={userData} />
-                <CommonUsers userData={userData} />
-                <UserMedia username={username} />
-              </Col>
-              <Col sm={6}>
-                <Switch>
-                  <Route
-                    exact
-                    path={`/${username}/following`}
-                    render={() => (
-                      <p>
+  componentDidMount() {
+    const hostname = 'https://twitter-demo.erodionov.ru';
+    const secretCode = process.env.REACT_APP_SECRET_CODE;
+    // // fetch for multiple urls incase we have trends and stuff
+    // Promise.all([
+    //   fetch(`${hostname}/api/v1/accounts/1?access_token=${secretCode}`),
+    //   // acount data
+    //   fetch(`${hostname}/api/v1/trends`),
+    //   // trends (not a json object)
+    // ])
+    //   .then(([response1, response2]) => Promise.all([response1.json(), response2]))
+    //   .then(([data1, data2]) => this.setState({
+    //     userData: data1,
+    //     trendsData: data2,
+    //   }));
+
+    fetch(`${hostname}/api/v1/accounts/1?access_token=${secretCode}`)
+      .then(response => response.json())
+      .then(data => this.setState({ userData: data }));
+  }
+
+  render() {
+    const { userData } = this.state;
+    return (
+      <React.Fragment>
+        <Helmet>
+          <title>
+            {`${userData.display_name} (@${userData.username}) | Twitter`}
+          </title>
+          <meta name="description" content={`The latest Tweets from ${userData.display_name}.`} />
+        </Helmet>
+        <Profile>
+          <Header />
+          <HeaderImage userData={userData} />
+          <Menu userData={userData} />
+          <MenuNav>
+            <Grid>
+              <Row>
+                <Col sm={3}>
+                  <Info userData={userData} />
+                  <CommonUsers userData={userData} />
+                  <UserMedia userData={userData} />
+                </Col>
+                <Col sm={6}>
+                  <Switch>
+                    <Route
+                      exact
+                      path={`/${userData.username}/following`}
+                      render={() => (
+                        <p>
 following
-                      </p>
-                    )}
-                  />
-                  <Route
-                    exact
-                    path={`/${username}/followers`}
-                    render={() => (
-                      <p>
+                        </p>
+                      )}
+                    />
+                    <Route
+                      exact
+                      path="/$userData.username/followers"
+                      render={() => (
+                        <p>
 followers
-                      </p>
-                    )}
-                  />
-                  <Route
-                    path={`/${username}/likes`}
-                    render={() => (
-                      <p>
+                        </p>
+                      )}
+                    />
+                    <Route
+                      path={`/${userData.username}/likes`}
+                      render={() => (
+                        <p>
 likes
-                      </p>
-                    )}
-                  />
-                  <Route
-                    exact
-                    path={`/${username}/lists`}
-                    render={() => (
-                      <p>
+                        </p>
+                      )}
+                    />
+                    <Route
+                      exact
+                      path={`/${userData.username}/lists`}
+                      render={() => (
+                        <p>
 lists
-                      </p>
-                    )}
-                  />
-                  <Route path={`/${username}`} render={() => <Content userData={userData} />} />
-                </Switch>
-              </Col>
-              <Col sm={3}>
-                <Suggestions />
-                <Trends />
-                <About />
-              </Col>
-            </Row>
-          </Grid>
-        </MenuNav>
-      </Profile>
-    </React.Fragment>
-  );
-};
+                        </p>
+                      )}
+                    />
+                    <Route
+                      path={`/${userData.username}`}
+                      render={() => <Content userData={userData} />}
+                    />
+                  </Switch>
+                </Col>
+                <Col sm={3}>
+                  <Suggestions />
+                  <Trends />
+                  <About />
+                </Col>
+              </Row>
+            </Grid>
+          </MenuNav>
+        </Profile>
+      </React.Fragment>
+    );
+  }
+}

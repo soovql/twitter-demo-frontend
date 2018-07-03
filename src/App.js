@@ -16,7 +16,7 @@ export default () => (
           component={DummyPage}
         />
         <Route path="/:username" component={ProfilePage} />
-        <Redirect from="/" to="/EveryInteract" />
+        <Redirect from="/" to="/admin" />
       </Switch>
     </Router>
   </IntlProvider>

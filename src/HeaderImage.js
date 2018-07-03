@@ -7,7 +7,6 @@ export default function ({ userData }) {
     background-position: center;
     background-size: cover;
     min-height: 300px;
-    background-color: ${userData.theme};
   `;
   return <Header />;
 }

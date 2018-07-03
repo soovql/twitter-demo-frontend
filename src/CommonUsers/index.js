@@ -41,8 +41,8 @@ const users = [userList[4], userList[5], userList[6], userList[7], userList[8], 
 
 function UserList() {
   const content = users.map(user => (
-    <Link key={user.id} to={user.nickname}>
-      <Icon src={user.avatar} alt={user.name} />
+    <Link key={user.id} to={user.username}>
+      <Icon src={user.avatar} alt={user.display_name} />
     </Link>
   ));
   return (
@@ -57,7 +57,7 @@ export default function ({ userData }) {
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to={`/${userData.nickname}/followers_you_follow`}>
+        <Text to={`/${userData.username}/followers_you_follow`}>
 6 Followers you know
         </Text>
       </Title>

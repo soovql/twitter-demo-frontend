@@ -67,19 +67,19 @@ const users = [userList[1], userList[2], userList[3]];
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion key={user.nickname}>
-      <Link to={user.nickname}>
+    <Suggestion key={user.username}>
+      <Link to={user.username}>
         <Avatar src={user.avatar} />
       </Link>
       <Block>
         <User>
-          <Name to={`/${user.nickname}`}>
-            {user.name}
+          <Name to={`/${user.username}`}>
+            {user.display_name}
           </Name>
           {user.verified && <Tick src={iconTick} />}
           <NickName>
             @
-            {user.nickname}
+            {user.username}
           </NickName>
         </User>
         <Button>

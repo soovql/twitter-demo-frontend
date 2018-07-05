@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { distanceInWordsToNow } from 'date-fns';
 import iconPinned from './icons/pinned.svg';
 import commentIcon from './icons/comments.png';
@@ -11,11 +12,20 @@ const Box = styled.div`
   display: flex;
 `;
 
-const Author = styled.div`
+const Author = styled(NavLink)`
   font-weight: bold;
   display: inline-block;
   padding-bottom: 10px;
   font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  &:visited {
+    color: #000;
+  }
+  &:hover {
+    color: #1da1f2;
+    text-decoration: underline;
+  }
 `;
 
 const Nickname = styled.div`
@@ -77,7 +87,7 @@ const TimeStamp = styled.div`
 `;
 
 const UploadedImage = styled.img`
-  width: 100%;
+  max-width: 100%;
   padding-top: 17px;
 `;
 
@@ -92,6 +102,9 @@ const PreviewText = styled.p`
 const PreviewBox = styled.div`
   border: 1px solid #e1e8ed;
   display: flex;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
 `;
 
 const PreviewTitle = styled.p`
@@ -137,7 +150,6 @@ class MediaContainer extends React.Component {
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
     const { id } = this.props;
-
     fetch(`${hostname}/api/v1/statuses/${id}/card?access_token=${secretCode}`)
       .then(response => response.json())
       .then(data => this.setState({ media: data }));
@@ -179,7 +191,7 @@ Pinned Tweet
       <Box>
         <SmallUserpic src={tweet.account.avatar} alt="" />
         <Content>
-          <Author>
+          <Author to={`/${tweet.account.id}`}>
             {tweet.account.display_name}
           </Author>
           <Nickname>
@@ -196,6 +208,7 @@ Pinned Tweet
               }}
             />
           )}
+          {/* TODO: add image grid */}
           {tweet.media_attachments.map(image => (
             <UploadedImage key={image.id} src={image.url} alt="" />
           ))}

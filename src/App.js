@@ -15,8 +15,8 @@ export default () => (
           path="/:direction(profile|about|support|tos|privacy|cookies|ads|moments|notifications|messages|search)"
           component={DummyPage}
         />
-        <Route path="/:username" component={ProfilePage} />
-        <Redirect from="/" to="/admin" />
+        <Route path="/:id" component={ProfilePage} />
+        <Redirect from="/" to="/1" />
       </Switch>
     </Router>
   </IntlProvider>

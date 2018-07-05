@@ -35,15 +35,22 @@ export default class Content extends React.Component {
   };
 
   componentDidMount() {
+    const { userData } = this.props;
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
     // fetch for multiple urls
     Promise.all([
-      fetch(`${hostname}/api/v1/accounts/1/statuses?local=true&access_token=${secretCode}`),
+      fetch(
+        `${hostname}/api/v1/accounts/${userData.id}/statuses?local=true&access_token=${secretCode}`,
+      ),
       // posts without comments?
-      fetch(`${hostname}/api/v1/accounts/1/statuses?access_token=${secretCode}`),
+      fetch(`${hostname}/api/v1/accounts/${userData.id}/statuses?access_token=${secretCode}`),
       // ALL posts
-      fetch(`${hostname}/api/v1/accounts/1/statuses?only_media=true&access_token=${secretCode}`),
+      fetch(
+        `${hostname}/api/v1/accounts/${
+          userData.id
+        }/statuses?only_media=true&access_token=${secretCode}`,
+      ),
       // posts only media
     ])
       .then(([resp1, resp2, resp3]) => Promise.all([resp1.json(), resp2.json(), resp3.json()]))
@@ -60,28 +67,28 @@ export default class Content extends React.Component {
     return (
       <React.Fragment>
         <FeedTab>
-          <Tab exact to={`/${userData.username}`}>
+          <Tab exact to={`/${userData.id}`}>
             Tweets
           </Tab>
-          <Tab exact to={`/${userData.username}/with_replies`}>
+          <Tab exact to={`/${userData.id}/with_replies`}>
             Tweets & Replies
           </Tab>
-          <Tab exact to={`/${userData.username}/media`}>
+          <Tab exact to={`/${userData.id}/media`}>
             Media
           </Tab>
         </FeedTab>
         <Switch>
           <Route
             exact
-            path={`/${userData.username}/with_replies`}
+            path={`/${userData.id}/with_replies`}
             render={() => <Feed tweetsData={tweetsWithReplies} />}
           />
           <Route
             exact
-            path={`/${userData.username}/media`}
+            path={`/${userData.id}/media`}
             render={() => <Feed tweetsData={tweetsOnlyMedia} />}
           />
-          <Route path={`/${userData.username}`} render={() => <Feed tweetsData={tweetsData} />} />
+          <Route path={`/${userData.id}`} render={() => <Feed tweetsData={tweetsData} />} />
         </Switch>
       </React.Fragment>
     );

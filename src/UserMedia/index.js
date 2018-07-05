@@ -79,7 +79,7 @@ export default function ({ userData }) {
     <Media>
       <Title>
         <MediaIcon src={mediaIcon} />
-        <Text to={`/${userData.username}/media`}>
+        <Text to={`/${userData.id}/media`}>
 5,571 Photos and videos
         </Text>
       </Title>

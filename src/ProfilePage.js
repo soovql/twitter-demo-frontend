@@ -29,15 +29,15 @@ export default class ProfilePage extends React.Component {
   };
 
   componentDidMount() {
+    const { match } = this.props;
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
 
     // fetch user profile data
-    fetch(`${hostname}/api/v1/accounts/1?access_token=${secretCode}`)
+    fetch(`${hostname}/api/v1/accounts/${match.params.id}?access_token=${secretCode}`)
       .then(response => response.json())
       .then(data => this.setState({ userData: data }));
   }
-
 
   render() {
     const { userData } = this.state;
@@ -65,7 +65,7 @@ export default class ProfilePage extends React.Component {
                   <Switch>
                     <Route
                       exact
-                      path={`/${userData.username}/following`}
+                      path={`/${userData.id}/following`}
                       render={() => (
                         <p>
 following
@@ -74,7 +74,7 @@ following
                     />
                     <Route
                       exact
-                      path={`/${userData.username}/followers`}
+                      path={`/${userData.id}/followers`}
                       render={() => (
                         <p>
 followers
@@ -82,7 +82,7 @@ followers
                       )}
                     />
                     <Route
-                      path={`/${userData.username}/likes`}
+                      path={`/${userData.id}/likes`}
                       render={() => (
                         <p>
 likes
@@ -91,7 +91,7 @@ likes
                     />
                     <Route
                       exact
-                      path={`/${userData.username}/lists`}
+                      path={`/${userData.id}/lists`}
                       render={() => (
                         <p>
 lists
@@ -99,7 +99,7 @@ lists
                       )}
                     />
                     <Route
-                      path={`/${userData.username}`}
+                      path={`/${userData.id}`}
                       render={() => <Content userData={userData} />}
                     />
                   </Switch>

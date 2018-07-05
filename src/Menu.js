@@ -84,7 +84,7 @@ export default ({ userData }) => (
         </Col>
         <Col sm={6}>
           <Statistics>
-            <StyledLink exact to={`/${userData.username}`}>
+            <StyledLink exact to={`/${userData.id}`}>
               <Name>
 Tweets
               </Name>
@@ -93,7 +93,7 @@ Tweets
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.username}/following`}>
+            <StyledLink exact to={`/${userData.id}/following`}>
               <Name>
 Following
               </Name>
@@ -102,7 +102,7 @@ Following
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.username}/followers`}>
+            <StyledLink exact to={`/${userData.id}/followers`}>
               <Name>
 Followers
               </Name>
@@ -111,7 +111,7 @@ Followers
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.username}/likes`}>
+            <StyledLink exact to={`/${userData.id}/likes`}>
               <Name>
 Likes
               </Name>
@@ -120,7 +120,7 @@ Likes
               </Count>
             </StyledLink>
 
-            <StyledLink to={`/${userData.username}/lists`}>
+            <StyledLink to={`/${userData.id}/lists`}>
               <Name>
 Lists
               </Name>

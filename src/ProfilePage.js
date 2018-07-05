@@ -38,9 +38,9 @@ export default class ProfilePage extends React.Component {
       .then(data => this.setState({ userData: data }));
   }
 
+
   render() {
     const { userData } = this.state;
-
     return (
       <React.Fragment>
         <Helmet>
@@ -100,11 +100,7 @@ lists
                     />
                     <Route
                       path={`/${userData.username}`}
-                      render={() => (
-                        <Content
-                          userData={userData}
-                        />
-                      )}
+                      render={() => <Content userData={userData} />}
                     />
                   </Switch>
                 </Col>

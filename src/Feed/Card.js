@@ -128,14 +128,10 @@ const Action = styled.div`
   align-self: safe center;
 `;
 
-class ExternalCard extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      card: [],
-    };
-  }
+class MediaContainer extends React.Component {
+  state = {
+    media: [],
+  };
 
   componentDidMount() {
     const hostname = 'https://twitter-demo.erodionov.ru';
@@ -144,22 +140,22 @@ class ExternalCard extends React.Component {
 
     fetch(`${hostname}/api/v1/statuses/${id}/card?access_token=${secretCode}`)
       .then(response => response.json())
-      .then(data => this.setState({ card: data }));
+      .then(data => this.setState({ media: data }));
   }
 
   render() {
-    const { card } = this.state;
+    const { media } = this.state;
     return (
       <React.Fragment>
-        {card.url && (
+        {media.url && (
           <PreviewBox>
-            <PreviewImage src={card.image} alt="" />
+            <PreviewImage src={media.image} alt="" />
             <TextWrap>
               <PreviewTitle>
-                {card.title}
+                {media.title}
               </PreviewTitle>
               <PreviewText>
-                {card.description}
+                {media.description}
               </PreviewText>
             </TextWrap>
           </PreviewBox>
@@ -203,7 +199,7 @@ Pinned Tweet
           {tweet.media_attachments.map(image => (
             <UploadedImage key={image.id} src={image.url} alt="" />
           ))}
-          <ExternalCard id={tweet.id} />
+          <MediaContainer id={tweet.id} />
         </Content>
       </Box>
       <Social>

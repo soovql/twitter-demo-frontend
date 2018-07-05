@@ -37,21 +37,20 @@ export default class Content extends React.Component {
   componentDidMount() {
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
-
     // fetch for multiple urls
     Promise.all([
       fetch(`${hostname}/api/v1/accounts/1/statuses?local=true&access_token=${secretCode}`),
-      // posts data
+      // posts without comments?
       fetch(`${hostname}/api/v1/accounts/1/statuses?access_token=${secretCode}`),
-      // posts data only media
+      // ALL posts
       fetch(`${hostname}/api/v1/accounts/1/statuses?only_media=true&access_token=${secretCode}`),
-      // posts data only media
+      // posts only media
     ])
-      .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
-      .then(([data1, data2, data3]) => this.setState({
-        tweetsData: data1,
-        tweetsWithReplies: data2,
-        tweetsOnlyMedia: data3,
+      .then(([resp1, resp2, resp3]) => Promise.all([resp1.json(), resp2.json(), resp3.json()]))
+      .then(([tweets, replies, media]) => this.setState({
+        tweetsData: tweets,
+        tweetsWithReplies: replies,
+        tweetsOnlyMedia: media,
       }));
   }
 

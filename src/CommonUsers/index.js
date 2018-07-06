@@ -37,7 +37,9 @@ const Title = styled.div`
   padding-bottom: 8px;
 `;
 
-const users = [userList[4], userList[5], userList[6], userList[7], userList[8], userList[9]];
+const users = userList.filter(user => user.followed).slice(1, 7);
+// getting users from the list that we follow and slice 6 of them to display
+// 1 to exclude 0 -- Everyinteract
 
 function UserList() {
   const content = users.map(user => (

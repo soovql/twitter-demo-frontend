@@ -63,7 +63,8 @@ const Block = styled.div`
   overflow: hidden;
 `;
 
-const users = [userList[1], userList[2], userList[3]];
+const users = userList.filter(user => !user.followed).slice(0, 3);
+// getting only users from the list that we don't yet follow and slice only 3 of them to display
 
 export default function UserList() {
   const content = users.map(user => (

@@ -9,6 +9,7 @@ import Content from './Content';
 import Info from './Info';
 import Suggestions from './Suggestions';
 import CommonUsers from './CommonUsers';
+import Followers from './Followers';
 import Trends from './Trends';
 import About from './About';
 import UserMedia from './UserMedia';
@@ -84,11 +85,7 @@ following
                     <Route
                       exact
                       path={`/${userData.id}/followers`}
-                      render={() => (
-                        <p>
-followers
-                        </p>
-                      )}
+                      render={() => <Followers userData={userData} />}
                     />
                     <Route
                       path={`/${userData.id}/likes`}

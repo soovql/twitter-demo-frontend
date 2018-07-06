@@ -45,6 +45,7 @@ function UserList() {
   const content = users.map(user => (
     <Link key={user.id} to={`/${user.id}`}>
       <Icon src={user.avatar} alt={user.name} />
+      {console.log(user.id)}
     </Link>
   ));
   return (

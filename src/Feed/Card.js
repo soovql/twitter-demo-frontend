@@ -38,11 +38,17 @@ const Nickname = styled.div`
 `;
 
 const Post = styled.div`
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 14px;
   font-weight: lighter;
   p {
     margin: 0;
+  }
+  a {
+    color: #1da1f2;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 

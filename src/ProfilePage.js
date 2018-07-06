@@ -29,15 +29,24 @@ export default class ProfilePage extends React.Component {
   };
 
   componentDidMount() {
+    this.getUserInfo();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { match } = this.props;
+    if (prevProps.match.params.id !== match.params.id) {
+      this.getUserInfo();
+    }
+  }
+
+  getUserInfo = () => {
     const { match } = this.props;
     const hostname = 'https://twitter-demo.erodionov.ru';
     const secretCode = process.env.REACT_APP_SECRET_CODE;
-
-    // fetch user profile data
     fetch(`${hostname}/api/v1/accounts/${match.params.id}?access_token=${secretCode}`)
       .then(response => response.json())
       .then(data => this.setState({ userData: data }));
-  }
+  };
 
   render() {
     const { userData } = this.state;

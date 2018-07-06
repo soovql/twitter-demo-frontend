@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    id: 0,
     nickname: 'EveryInteract',
     name: 'Every Interaction',
     avatar: `${process.env.PUBLIC_URL}/users/everyinteract_400x400.png`,
@@ -14,7 +14,7 @@ export default [
     joined: 'Joined May 2008',
   },
   {
-    id: 2,
+    id: 1,
     nickname: 'hormiga',
     name: 'Terry McGlynn',
     avatar: `${process.env.PUBLIC_URL}/users/hormiga_400x400.jpg`,
@@ -26,7 +26,7 @@ export default [
     joined: 'Joined November 2007',
   },
   {
-    id: 3,
+    id: 2,
     nickname: 'AdamCBlakemore',
     name: 'Adam Blakemore',
     avatar: `${process.env.PUBLIC_URL}/users/adamcblakemore_400x400.jpg`,
@@ -38,7 +38,7 @@ export default [
     joined: 'Joined October 2012',
   },
   {
-    id: 4,
+    id: 3,
     nickname: 'darkejon',
     name: 'Jon Darke',
     avatar: `${process.env.PUBLIC_URL}/users/darkejon_400x400.png`,
@@ -48,7 +48,7 @@ export default [
     joined: 'Joined October 2011',
   },
   {
-    id: 6,
+    id: 4,
     nickname: 'nb_illustration',
     name: 'NB Illustration',
     avatar: `${process.env.PUBLIC_URL}/users/nbillustration_400x400.jpg`,
@@ -61,7 +61,7 @@ export default [
     joined: 'Joined April 2012',
   },
   {
-    id: 7,
+    id: 5,
     nickname: 'nospec',
     name: 'No!Spec',
     avatar: `${process.env.PUBLIC_URL}/users/nospec_400x400.jpeg`,
@@ -73,7 +73,7 @@ export default [
     theme: '#000',
   },
   {
-    id: 8,
+    id: 6,
     nickname: 'blbkhq',
     name: 'BLKBK',
     avatar: `${process.env.PUBLIC_URL}/users/blkbkhq_400x400.jpg`,
@@ -86,7 +86,7 @@ export default [
     joined: 'Joined October 2015',
   },
   {
-    id: 9,
+    id: 7,
     nickname: 'uxdreport',
     name: 'UXDReport',
     avatar: `${process.env.PUBLIC_URL}/users/uxdreport_400x400.jpg`,
@@ -98,7 +98,7 @@ export default [
     joined: 'Joined October 2011',
   },
   {
-    id: 10,
+    id: 8,
     nickname: 'halvorsonn',
     name: 'Kristina Halvorson',
     avatar: `${process.env.PUBLIC_URL}/users/halvorson_400x400.jpeg`,
@@ -111,7 +111,7 @@ export default [
     joined: 'Joined April 2008',
   },
   {
-    id: 11,
+    id: 9,
     nickname: 'karenmcgrane',
     name: 'Karen McGrane',
     avatar: `${process.env.PUBLIC_URL}/users/karenmcgrane_400x400.jpg`,

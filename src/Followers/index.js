@@ -82,8 +82,8 @@ export default class Followers extends React.Component {
   render() {
     const { followers } = this.state;
     const followerCard = followers.map(person => (
-      <Col lg={4} md={6} sm={12}>
-        <Card key={person.id}>
+      <Col lg={4} md={6} sm={12} key={person.id}>
+        <Card>
           <Header src={person.header_static} />
           <Info>
             <AvatarWrap to={`/${person.id}`}>

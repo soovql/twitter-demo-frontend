@@ -68,7 +68,7 @@ const users = userList.filter(user => !user.followed).slice(0, 3);
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion key={user.username}>
+    <Suggestion key={user.id}>
       <Link to={`/${user.id}`}>
         <Avatar src={user.avatar} />
       </Link>

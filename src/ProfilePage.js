@@ -14,6 +14,7 @@ import Trends from './Trends';
 import About from './About';
 import UserMedia from './UserMedia';
 import Menu from './Menu';
+import ErrorPage from './404';
 
 const Profile = styled.div`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -46,11 +47,28 @@ export default class ProfilePage extends React.Component {
     const secretCode = process.env.REACT_APP_SECRET_CODE;
     fetch(`${hostname}/api/v1/accounts/${match.params.id}?access_token=${secretCode}`)
       .then(response => response.json())
-      .then(data => this.setState({ userData: data }));
+      .then((data) => {
+        this.setState({ userData: data });
+      });
   };
 
   render() {
     const { userData } = this.state;
+    if (userData.error) {
+      return (
+        <React.Fragment>
+          <Helmet>
+            <title>
+              {`${userData.error} | Twitter`}
+            </title>
+          </Helmet>
+          <Profile>
+            <Header />
+            <ErrorPage />
+          </Profile>
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
         <Helmet>

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { distanceInWordsToNow } from 'date-fns';
 import iconPinned from './icons/pinned.svg';
 import commentIcon from './icons/comments.png';
 import retweetIcon from './icons/retweet.png';
@@ -10,11 +12,20 @@ const Box = styled.div`
   display: flex;
 `;
 
-const Author = styled.div`
+const Author = styled(NavLink)`
   font-weight: bold;
   display: inline-block;
   padding-bottom: 10px;
   font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  &:visited {
+    color: #000;
+  }
+  &:hover {
+    color: #1da1f2;
+    text-decoration: underline;
+  }
 `;
 
 const Nickname = styled.div`
@@ -27,16 +38,25 @@ const Nickname = styled.div`
 `;
 
 const Post = styled.div`
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 14px;
   font-weight: lighter;
+  p {
+    margin: 0;
+  }
+  a {
+    color: #1da1f2;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const SmallUserpic = styled.img`
   border-radius: 50%;
   height: 32px;
   width: auto;
-  margin: 5px 15px 0 0;
+  margin: 0 15px 0 0;
 `;
 
 const Pinned = styled.div`
@@ -73,7 +93,7 @@ const TimeStamp = styled.div`
 `;
 
 const UploadedImage = styled.img`
-  width: 100%;
+  max-width: 100%;
   padding-top: 17px;
 `;
 
@@ -88,6 +108,9 @@ const PreviewText = styled.p`
 const PreviewBox = styled.div`
   border: 1px solid #e1e8ed;
   display: flex;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
 `;
 
 const PreviewTitle = styled.p`
@@ -124,51 +147,44 @@ const Action = styled.div`
   align-self: safe center;
 `;
 
-const tweets = [
-  {
-    id: 1,
-    pinned: true,
-    avatar: `${process.env.PUBLIC_URL}/img/avatar_small.png`,
-    name: 'Every Interaction',
-    nickname: '@EveryInteract',
-    image: `${process.env.PUBLIC_URL}/img/content/content_01.png`,
-    time: '• 2 Mar 2015',
-    post:
-      "We’ve made some more resources for all you wonderful <a href='#design' target='_blank'>#design</a> folk <a href='https://everyinteraction.com/resources/' target='_blank'>everyinteraction.com/resources/</a> <a href='#webdesign' target='_blank'>#webdesign</a> <a href='#ui' target='_blank'>#UI</div>",
-    reposts: 17,
-    likes: 47,
-  },
-  {
-    id: 2,
-    avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
-    name: 'Every Interaction',
-    nickname: '@EveryInteract',
-    time: '• 23h',
-    post:
-      "Our new website concept; Taking you from… @ Every Interaction <a href='https://instagram.com/p/BNFGrfhBP3M/' target='_blank'>instagram.com/p/BNFGrfhBP3M/</a>",
-    comments: 1,
-    reposts: 4,
-    likes: 2,
-    liked: true,
-  },
-  {
-    id: 3,
-    avatar: `${process.env.PUBLIC_UR}/img/avatar_small.png`,
-    name: 'Every Interaction',
-    nickname: '@EveryInteract',
-    time: '• Nov 18',
-    preview: {
-      description:
-        'Variable web fonts are coming, and will open a world of opportunities for weight use online',
-      image: `${process.env.PUBLIC_URL}/img/content/preview_01.png`,
-      title: 'The Future of Web Fonts',
-      text:
-        'We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re… vilijamis.com',
-    },
-  },
-];
-export default function Tweets({ userData }) {
-  const content = tweets.map(tweet => (
+class MediaContainer extends React.Component {
+  state = {
+    media: [],
+  };
+
+  componentDidMount() {
+    const hostname = 'https://twitter-demo.erodionov.ru';
+    const secretCode = process.env.REACT_APP_SECRET_CODE;
+    const { id } = this.props;
+    fetch(`${hostname}/api/v1/statuses/${id}/card?access_token=${secretCode}`)
+      .then(response => response.json())
+      .then(data => this.setState({ media: data }));
+  }
+
+  render() {
+    const { media } = this.state;
+    return (
+      <React.Fragment>
+        {media.url && (
+          <PreviewBox>
+            <PreviewImage src={media.image} alt="" />
+            <TextWrap>
+              <PreviewTitle>
+                {media.title}
+              </PreviewTitle>
+              <PreviewText>
+                {media.description}
+              </PreviewText>
+            </TextWrap>
+          </PreviewBox>
+        )}
+      </React.Fragment>
+    );
+  }
+}
+
+export default function Tweets({ tweetsData }) {
+  const content = tweetsData.map(tweet => (
     <Card key={tweet.id}>
       {tweet.pinned && (
         <Pinned>
@@ -179,45 +195,30 @@ Pinned Tweet
         </Pinned>
       )}
       <Box>
-        <SmallUserpic src={userData.avatar} alt="" />
+        <SmallUserpic src={tweet.account.avatar} alt="" />
         <Content>
-          <Author>
-            {tweet.name}
+          <Author to={`/${tweet.account.id}`}>
+            {tweet.account.display_name}
           </Author>
           <Nickname>
-            {tweet.nickname}
+            @
+            {tweet.account.username}
           </Nickname>
           <TimeStamp>
-            {tweet.time}
+            {`• ${distanceInWordsToNow(tweet.created_at)} ago`}
           </TimeStamp>
-          {tweet.post && (
-            <Post>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: tweet.post,
-                }}
-              />
-            </Post>
+          {tweet.content && (
+            <Post
+              dangerouslySetInnerHTML={{
+                __html: tweet.content,
+              }}
+            />
           )}
-          {tweet.image && <UploadedImage src={tweet.image} alt="" />}
-          {tweet.preview && (
-            <React.Fragment>
-              <PreviewText>
-                {tweet.preview.description}
-              </PreviewText>
-              <PreviewBox>
-                <PreviewImage src={tweet.preview.image} alt="" />
-                <TextWrap>
-                  <PreviewTitle>
-                    {tweet.preview.title}
-                  </PreviewTitle>
-                  <PreviewText>
-                    {tweet.preview.text}
-                  </PreviewText>
-                </TextWrap>
-              </PreviewBox>
-            </React.Fragment>
-          )}
+          {/* TODO: add image grid */}
+          {tweet.media_attachments.map(image => (
+            <UploadedImage key={image.id} src={image.url} alt="" />
+          ))}
+          <MediaContainer id={tweet.id} />
         </Content>
       </Box>
       <Social>

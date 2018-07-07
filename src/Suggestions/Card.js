@@ -68,19 +68,19 @@ const users = userList.filter(user => !user.followed).slice(0, 3);
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion key={user.nickname}>
-      <Link to={user.nickname}>
+    <Suggestion key={user.id}>
+      <Link to={`/${user.id}`}>
         <Avatar src={user.avatar} />
       </Link>
       <Block>
         <User>
-          <Name to={`/${user.nickname}`}>
+          <Name to={`/${user.id}`}>
             {user.name}
           </Name>
           {user.verified && <Tick src={iconTick} />}
           <NickName>
             @
-            {user.nickname}
+            {user.username}
           </NickName>
         </User>
         <Button>

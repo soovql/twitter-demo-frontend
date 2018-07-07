@@ -80,38 +80,38 @@ export default ({ userData }) => (
     <Grid>
       <Row>
         <Col sm={3}>
-          <Avatar src={userData.avatar} />
+          <Avatar src={userData.avatar_static} />
         </Col>
         <Col sm={6}>
           <Statistics>
-            <StyledLink exact to={`/${userData.nickname}`}>
+            <StyledLink exact to={`/${userData.id}`}>
               <Name>
 Tweets
               </Name>
               <Count>
-8,058
+                {userData.statuses_count}
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.nickname}/following`}>
+            <StyledLink exact to={`/${userData.id}/following`}>
               <Name>
 Following
               </Name>
               <Count>
-721
+                {userData.following_count}
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.nickname}/followers`}>
+            <StyledLink exact to={`/${userData.id}/followers`}>
               <Name>
 Followers
               </Name>
               <Count>
-1,815
+                {userData.followers_count}
               </Count>
             </StyledLink>
 
-            <StyledLink exact to={`/${userData.nickname}/likes`}>
+            <StyledLink exact to={`/${userData.id}/likes`}>
               <Name>
 Likes
               </Name>
@@ -120,7 +120,7 @@ Likes
               </Count>
             </StyledLink>
 
-            <StyledLink to={`/${userData.nickname}/lists`}>
+            <StyledLink to={`/${userData.id}/lists`}>
               <Name>
 Lists
               </Name>

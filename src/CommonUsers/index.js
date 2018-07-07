@@ -37,13 +37,13 @@ const Title = styled.div`
   padding-bottom: 8px;
 `;
 
-const users = userList.filter(user => user.followed).slice(1, 7);
+const users = userList.filter(person => person.followed).slice(1, 7);
 // getting users from the list that we follow and slice 6 of them to display
 // 1 to exclude 0 -- Everyinteract
 
 function UserList() {
   const content = users.map(user => (
-    <Link key={user.id} to={user.nickname}>
+    <Link key={user.id} to={`/${user.id}`}>
       <Icon src={user.avatar} alt={user.name} />
     </Link>
   ));
@@ -59,7 +59,7 @@ export default function ({ userData }) {
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to={`/${userData.nickname}/followers_you_follow`}>
+        <Text to={`/${userData.id}/followers_you_follow`}>
 6 Followers you know
         </Text>
       </Title>

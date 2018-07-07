@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { format } from 'date-fns';
 import iconTick from './icons/tick.png';
 import iconJoined from './icons/joined.svg';
 import iconLink from './icons/link.svg';
@@ -29,7 +29,10 @@ const Nickname = styled.div`
 const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: 14171a;
+  color: #14171a;
+  p {
+    margin: 0;
+  }
 `;
 
 const Buttons = styled.div`
@@ -37,12 +40,11 @@ const Buttons = styled.div`
   justify-content: space-evenly;
 `;
 
-
 const About = styled.ul`
   padding: 0;
 `;
 
-const Url = styled(NavLink)`
+const Url = styled.a`
   color: #1da1f2;
   text-decoration: none;
   &:hover {
@@ -68,9 +70,8 @@ const Tick = styled.img`
 `;
 export default ({ userData }) => (
   <UserInfo>
-
     <Name>
-      {userData.name}
+      {userData.display_name}
       {userData.verified && (
         <Tick src={iconTick} title="Verified account" alt="Approved User Tick" />
       )}
@@ -78,23 +79,27 @@ export default ({ userData }) => (
 
     <Nickname>
       @
-      {userData.nickname}
+      {userData.username}
     </Nickname>
-    <Description>
-      {userData.about}
-    </Description>
+    <Description
+      dangerouslySetInnerHTML={{
+        __html: userData.note,
+      }}
+    />
+
     <About>
-      <ExtrasInfo>
-        <img src={iconLocation} alt="" />
-        <ExtrasContent>
-          {userData.location}
-        </ExtrasContent>
-      </ExtrasInfo>
+      {userData.location && (
+        <ExtrasInfo>
+          <img src={iconLocation} alt="" />
+          <ExtrasContent>
+            {userData.location}
+          </ExtrasContent>
+        </ExtrasInfo>
+      )}
       <ExtrasInfo>
         <img src={iconLink} alt="" />
         <ExtrasContent>
-          <Url to={userData.url}>
-            {' '}
+          <Url href={userData.url}>
             {userData.url}
           </Url>
         </ExtrasContent>
@@ -102,7 +107,8 @@ export default ({ userData }) => (
       <ExtrasInfo>
         <img src={iconJoined} alt="" />
         <ExtrasContent>
-          {userData.joined}
+          Joined
+          {format(userData.created_at, ' MMMM YYYY ')}
         </ExtrasContent>
       </ExtrasInfo>
     </About>

@@ -27,37 +27,70 @@ const FeedTab = styled.ul`
   border-bottom: 1px solid lightgrey;
 `;
 
-export default ({ userData }) => (
-  <FeedTab>
-    <Tab exact to={`/${userData.nickname}`}>
-      Tweets
-    </Tab>
-    <Tab exact to={`/${userData.nickname}/with_replies`}>
-      Tweets & Replies
-    </Tab>
-    <Tab exact to={`/${userData.nickname}/media`}>
-      Media
-    </Tab>
-    <Switch>
-      <Route
-        exact
-        path={`/${userData.nickname}/with_replies`}
-        render={() => (
-          <p>
-with replies
-          </p>
-        )}
-      />
-      <Route
-        exact
-        path={`/${userData.nickname}/media`}
-        render={() => (
-          <p>
-media
-          </p>
-        )}
-      />
-      <Route path={`/${userData.nickname}`} render={() => <Feed userData={userData} />} />
-    </Switch>
-  </FeedTab>
-);
+export default class Content extends React.Component {
+  state = {
+    tweetsData: [],
+    tweetsWithReplies: [],
+    tweetsOnlyMedia: [],
+  };
+
+  componentDidMount() {
+    const { userData } = this.props;
+    const hostname = 'https://twitter-demo.erodionov.ru';
+    const secretCode = process.env.REACT_APP_SECRET_CODE;
+    // fetch for multiple urls
+    Promise.all([
+      fetch(
+        `${hostname}/api/v1/accounts/${userData.id}/statuses?local=true&access_token=${secretCode}`,
+      ),
+      // posts without comments?
+      fetch(`${hostname}/api/v1/accounts/${userData.id}/statuses?access_token=${secretCode}`),
+      // ALL posts
+      fetch(
+        `${hostname}/api/v1/accounts/${
+          userData.id
+        }/statuses?only_media=true&access_token=${secretCode}`,
+      ),
+      // posts only media
+    ])
+      .then(([resp1, resp2, resp3]) => Promise.all([resp1.json(), resp2.json(), resp3.json()]))
+      .then(([tweets, replies, media]) => this.setState({
+        tweetsData: tweets,
+        tweetsWithReplies: replies,
+        tweetsOnlyMedia: media,
+      }));
+  }
+
+  render() {
+    const { tweetsData, tweetsOnlyMedia, tweetsWithReplies } = this.state;
+    const { userData } = this.props;
+    return (
+      <React.Fragment>
+        <FeedTab>
+          <Tab exact to={`/${userData.id}`}>
+            Tweets
+          </Tab>
+          <Tab exact to={`/${userData.id}/with_replies`}>
+            Tweets & Replies
+          </Tab>
+          <Tab exact to={`/${userData.id}/media`}>
+            Media
+          </Tab>
+        </FeedTab>
+        <Switch>
+          <Route
+            exact
+            path={`/${userData.id}/with_replies`}
+            render={() => <Feed tweetsData={tweetsWithReplies} />}
+          />
+          <Route
+            exact
+            path={`/${userData.id}/media`}
+            render={() => <Feed tweetsData={tweetsOnlyMedia} />}
+          />
+          <Route path={`/${userData.id}`} render={() => <Feed tweetsData={tweetsData} />} />
+        </Switch>
+      </React.Fragment>
+    );
+  }
+}

@@ -74,12 +74,12 @@ const Text = styled(NavLink)`
 
 const Rail = styled.div``;
 
-export default function ({ username }) {
+export default function ({ userData }) {
   return (
     <Media>
       <Title>
         <MediaIcon src={mediaIcon} />
-        <Text to={`/${username}/media`}>
+        <Text to={`/${userData.id}/media`}>
 5,571 Photos and videos
         </Text>
       </Title>

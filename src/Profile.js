@@ -1,22 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
-import { Grid, Col, Row } from 'react-flexbox-grid';
-import { Helmet } from 'react-helmet';
-import Header from './Header';
-import HeaderImage from './HeaderImage';
-import Content from './Content';
-import Info from './Info';
-import Suggestions from './Suggestions';
-import CommonUsers from './CommonUsers';
-import Followers from './Followers';
-import Trends from './Trends';
-import About from './About';
-import UserMedia from './UserMedia';
-import Menu from './Menu';
+import React from "react";
+import styled from "styled-components";
+import { Switch, Route } from "react-router-dom";
+import { Grid, Col, Row } from "react-flexbox-grid";
+import { Helmet } from "react-helmet";
+import Header from "./Header";
+import HeaderImage from "./HeaderImage";
+import Content from "./Content";
+import Info from "./Info";
+import Suggestions from "./Suggestions";
+import CommonUsers from "./CommonUsers";
+import Followers from "./Followers";
+import Trends from "./Trends";
+import About from "./About";
+import UserMedia from "./UserMedia";
+import Menu from "./Menu";
 
 const Profile = styled.div`
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
 const MenuNav = styled.div`
@@ -30,7 +30,10 @@ export default ({ userData }) => (
       <title>
         {`${userData.display_name} (@${userData.username}) | Twitter`}
       </title>
-      <meta name="description" content={`The latest Tweets from ${userData.display_name}.`} />
+      <meta
+        name="description"
+        content={`The latest Tweets from ${userData.display_name}.`}
+      />
     </Helmet>
     <Profile>
       <Header />
@@ -49,11 +52,7 @@ export default ({ userData }) => (
                 <Route
                   exact
                   path={`/${userData.id}/following`}
-                  render={() => (
-                    <p>
-following
-                    </p>
-                  )}
+                  render={() => <p>following</p>}
                 />
                 <Route
                   exact
@@ -62,22 +61,17 @@ following
                 />
                 <Route
                   path={`/${userData.id}/likes`}
-                  render={() => (
-                    <p>
-likes
-                    </p>
-                  )}
+                  render={() => <p>likes</p>}
                 />
                 <Route
                   exact
                   path={`/${userData.id}/lists`}
-                  render={() => (
-                    <p>
-lists
-                    </p>
-                  )}
+                  render={() => <p>lists</p>}
                 />
-                <Route path={`/${userData.id}`} render={() => <Content userData={userData} />} />
+                <Route
+                  path={`/${userData.id}`}
+                  render={() => <Content userData={userData} />}
+                />
               </Switch>
             </Col>
             <Col sm={3}>

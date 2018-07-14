@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { format } from 'date-fns';
-import iconTick from './icons/tick.png';
-import iconJoined from './icons/joined.svg';
-import iconLink from './icons/link.svg';
-import iconLocation from './icons/location.svg';
-import Button from '../Button';
+
+import React from "react";
+import styled from "styled-components";
+import { format } from "date-fns";
+import iconTick from "./icons/tick.png";
+import iconJoined from "./icons/joined.svg";
+import iconLink from "./icons/link.svg";
+import iconLocation from "./icons/location.svg";
+import Button from "../Button";
 
 const UserInfo = styled.div`
   margin-top: 30px;
@@ -68,59 +69,62 @@ const Tick = styled.img`
   padding-left: 5px;
   vertical-align: middle;
 `;
-export default ({ userData }) => (
+
+interface User {
+  userData: {
+    display_name: string,
+    verified: boolean,
+    username: string,
+    note: string,
+    location: string,
+    url: boolean,
+    created_at: string,
+    followed: boolean
+  };
+}
+
+export default (param: User) => (
   <UserInfo>
     <Name>
-      {userData.display_name}
-      {userData.verified && (
-        <Tick src={iconTick} title="Verified account" alt="Approved User Tick" />
+      {param.userData.display_name}
+      {param.userData.verified && (
+        <Tick
+          src={iconTick}
+          title="Verified account"
+          alt="Approved User Tick"
+        />
       )}
     </Name>
-
-    <Nickname>
-      @
-      {userData.username}
-    </Nickname>
+    <Nickname>@{param.userData.username}</Nickname>
     <Description
       dangerouslySetInnerHTML={{
-        __html: userData.note,
+        __html: param.userData.note
       }}
     />
-
     <About>
-      {userData.location && (
+      {param.userData.location && (
         <ExtrasInfo>
           <img src={iconLocation} alt="" />
-          <ExtrasContent>
-            {userData.location}
-          </ExtrasContent>
+          <ExtrasContent>{param.userData.location}</ExtrasContent>
         </ExtrasInfo>
       )}
       <ExtrasInfo>
         <img src={iconLink} alt="" />
         <ExtrasContent>
-          <Url href={userData.url}>
-            {userData.url}
-          </Url>
+          <Url href={param.userData.url}>{param.userData.url}</Url>
         </ExtrasContent>
       </ExtrasInfo>
       <ExtrasInfo>
         <img src={iconJoined} alt="" />
         <ExtrasContent>
           Joined
-          {format(userData.created_at, ' MMMM YYYY ')}
+          {format(param.userData.created_at, " MMMM YYYY ")}
         </ExtrasContent>
       </ExtrasInfo>
     </About>
     <Buttons>
-      <Button white>
-Tweet to
-      </Button>
-      {userData.followed && (
-      <Button white>
-Message
-      </Button>
-      )}
+      <Button white>Tweet to</Button>
+      {param.userData.followed && <Button white>Message</Button>}
     </Buttons>
   </UserInfo>
 );

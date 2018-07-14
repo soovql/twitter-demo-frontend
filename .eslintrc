@@ -1,8 +1,9 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier", "prettier/react", "prettier/flowtype"],
   "rules": {
     "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
     "react/prop-types": 0,
     "linebreak-style": ["error", "windows"]
   },

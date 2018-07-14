@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
-import Button from '../Button';
-import iconTick from './icons/tick.png';
-import iconDelete from './icons/delete.png';
-import userList from '../data/users';
+import React from "react";
+import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
+import Button from "../Button";
+import iconTick from "./icons/tick.png";
+import iconDelete from "./icons/delete.png";
+import userList from "../data/users";
 
 const Avatar = styled.img`
   align-self: center;
@@ -74,25 +74,17 @@ export default function UserList() {
       </Link>
       <Block>
         <User>
-          <Name to={`/${user.id}`}>
-            {user.name}
-          </Name>
+          <Name to={`/${user.id}`}>{user.name}</Name>
           {user.verified && <Tick src={iconTick} />}
           <NickName>
             @
-            {user.username}
+            {user.nickname}
           </NickName>
         </User>
-        <Button>
-Follow
-        </Button>
+        <Button>Follow</Button>
       </Block>
       <IconDelete src={iconDelete} />
     </Suggestion>
   ));
-  return (
-    <React.Fragment>
-      {content}
-    </React.Fragment>
-  );
+  return <React.Fragment>{content}</React.Fragment>;
 }

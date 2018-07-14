@@ -38,11 +38,7 @@ const photos = [
 
 function Gallery() {
   const content = photos.map(photo => <Photo key={photo.id} src={photo.src} alt={photo.alt} />);
-  return (
-    <React.Fragment>
-      {content}
-    </React.Fragment>
-  );
+  return <React.Fragment>{content}</React.Fragment>;
 }
 
 const MediaIcon = styled.img``;
@@ -74,14 +70,12 @@ const Text = styled(NavLink)`
 
 const Rail = styled.div``;
 
-export default function ({ userData }) {
+export default function ({ userData }: { id: number } = {}) {
   return (
     <Media>
       <Title>
         <MediaIcon src={mediaIcon} />
-        <Text to={`/${userData.id}/media`}>
-5,571 Photos and videos
-        </Text>
+        <Text to={`/${userData.id}/media`}>5,571 Photos and videos</Text>
       </Title>
       <Rail>
         <Gallery photos={photos} />

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
@@ -103,36 +104,20 @@ const Count = ({ count }) => (
 function TrendsList() {
   const content = trends.map(trend => (
     <Trend key={trend.id}>
-      <Name to={`/search?q=${trend.name}`}>
-        {trend.name}
-      </Name>
+      <Name to={`/search?q=${trend.name}`}>{trend.name}</Name>
       {trend.count && <Count count={trend.count} />}
-      {trend.description && (
-      <Description>
-        {trend.description}
-      </Description>
-      )}
+      {trend.description && <Description>{trend.description}</Description>}
     </Trend>
   ));
 
-  return (
-    <List>
-      {content}
-    </List>
-  );
+  return <List>{content}</List>;
 }
 
 export default function () {
   return (
     <Trends>
-      <Title>
-United Kingdom Trends
-      </Title>
-      {' '}
-·
-      <Change to="">
-Change
-      </Change>
+      <Title>United Kingdom Trends</Title> ·
+      <Change to="">Change</Change>
       <TrendsList trends={trends} />
     </Trends>
   );

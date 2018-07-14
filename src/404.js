@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+// @flow
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const Content = styled.div`
   background-color: #1da1f2;
@@ -23,15 +24,10 @@ const StyledLink = styled(NavLink)`
 
 export default () => (
   <Content>
-    <Header>
-Sorry, that page doesn’t exist!
-    </Header>
+    <Header>Sorry, that page doesn’t exist!</Header>
     <SubHeader>
-      You can search Twitter using the search box below or return to the
-      {' '}
-      <StyledLink to="/">
-homepage
-      </StyledLink>
+      You can search Twitter using the search box below or return to the{" "}
+      <StyledLink to="/">homepage</StyledLink>
       .
     </SubHeader>
   </Content>

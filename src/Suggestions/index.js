@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import Card from "./Card";
-import iconPeople from "./icons/people.png";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import Card from './Card';
+import iconPeople from './icons/people.png';
 
 const Title = styled.div`
   display: flex;
@@ -41,17 +41,29 @@ const IconPeople = styled.img`
   padding-right: 6px;
 `;
 
-export default props => (
+export default () => (
   <ContentBlock>
     <Title>
-      <Text> Who to follow&nbsp;</Text>·<Extra to="">&nbsp;Refresh&nbsp;</Extra>·
-      <Extra to="/who_to_follow/suggestions">&nbsp;View All</Extra>
+      <Text>
+        {' '}
+Who to follow&nbsp;
+      </Text>
+      ·
+      <Extra to="">
+&nbsp;Refresh&nbsp;
+      </Extra>
+      ·
+      <Extra to="/who_to_follow/suggestions">
+&nbsp;View All
+      </Extra>
     </Title>
 
     <Card />
     <Search>
       <IconPeople src={iconPeople} />
-      <Extra to="who_to_follow/import">Find people you know</Extra>
+      <Extra to="who_to_follow/import">
+Find people you know
+      </Extra>
     </Search>
   </ContentBlock>
 );

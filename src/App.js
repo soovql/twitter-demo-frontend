@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import ProfilePage from "./ProfilePage";
-import { IntlProvider } from "react-intl";
+import React from 'react';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
+import ProfilePage from './ProfilePage';
+import DummyPage from './DummyPage';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <IntlProvider locale="en">
-          <Router>
-            <React.Fragment>
-              <Route path="/EveryInteraction" component={ProfilePage} />
-              <Redirect from="/" to="EveryInteraction" />
-            </React.Fragment>
-          </Router>
-        </IntlProvider>
-      </div>
-    );
-  }
-}
-
-export default App;
+export default () => (
+  <IntlProvider locale="en">
+    <Router>
+      <Switch>
+        <Route
+          exact
+          path="/:direction(profile|about|support|tos|privacy|cookies|ads|moments|notifications|messages|search)"
+          component={DummyPage}
+        />
+        <Route path="/:username" component={ProfilePage} />
+        <Redirect from="/" to="/EveryInteract" />
+      </Switch>
+    </Router>
+  </IntlProvider>
+);

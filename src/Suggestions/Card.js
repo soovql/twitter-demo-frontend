@@ -1,12 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
-import { Button } from "../Button";
-import iconTick from "./icons/tick.png";
-import iconDelete from "./icons/delete.png";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, NavLink } from 'react-router-dom';
+import Button from '../Button';
+import iconTick from './icons/tick.png';
+import iconDelete from './icons/delete.png';
+import userList from '../data/users';
 
 const Avatar = styled.img`
   align-self: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 `;
 
 const Name = styled(NavLink)`
@@ -59,41 +63,36 @@ const Block = styled.div`
   overflow: hidden;
 `;
 
-const users = [
-  {
-    name: "AppleInsider",
-    nickname: "@appleinsider",
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_1.png`
-  },
-  {
-    tick: true,
-    name: "Creode",
-    nickname: "@Creode",
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_2.png`
-  },
-  {
-    name: "Epiphany Search",
-    nickname: "@Epiphany",
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/suggestion_avatar_3.png`
-  }
-];
+const users = userList.filter(user => !user.followed).slice(0, 3);
+// getting only users from the list that we don't yet follow and slice only 3 of them to display
 
 export default function UserList() {
   const content = users.map(user => (
-    <Suggestion>
+    <Suggestion key={user.nickname}>
       <Link to={user.nickname}>
-        <Avatar src={user.src} />
+        <Avatar src={user.avatar} />
       </Link>
       <Block>
         <User>
-          <Name to={user.nickname}>{user.name}</Name>
-          {user.tick && <Tick src={iconTick} />}
-          <NickName>{user.nickname}</NickName>
+          <Name to={`/${user.nickname}`}>
+            {user.name}
+          </Name>
+          {user.verified && <Tick src={iconTick} />}
+          <NickName>
+            @
+            {user.nickname}
+          </NickName>
         </User>
-        <Button>Follow</Button>
+        <Button>
+Follow
+        </Button>
       </Block>
       <IconDelete src={iconDelete} />
     </Suggestion>
   ));
-  return <React.Fragment>{content}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {content}
+    </React.Fragment>
+  );
 }

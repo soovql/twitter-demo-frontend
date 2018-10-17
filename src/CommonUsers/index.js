@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import followersIcon from "./icons/followers.png";
-import { NavLink, Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink, Link } from 'react-router-dom';
+import followersIcon from './icons/followers.png';
+import userList from '../data/users';
 
 const Users = styled.div`
   padding-top: 19px;
@@ -27,6 +28,8 @@ const Text = styled(NavLink)`
 
 const Icon = styled.img`
   padding-left: 5px;
+  height: 48px;
+  width: 48px;
 `;
 
 const Title = styled.div`
@@ -34,54 +37,31 @@ const Title = styled.div`
   padding-bottom: 8px;
 `;
 
-const users = [
-  {
-    name: `username1`,
-    nickname: `nickname1`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_1.png`
-  },
-  {
-    name: `username2`,
-    nickname: `nickname2`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_2.png`
-  },
-  {
-    name: `username3`,
-    nickname: `nickname3`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_3.png`
-  },
-  {
-    name: `username4`,
-    nickname: `nickname4`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_4.png`
-  },
-  {
-    name: `username5`,
-    nickname: `nickname5`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_5.png`
-  },
-  {
-    name: `username6`,
-    nickname: `nickname6`,
-    src: `${process.env.PUBLIC_URL}/img/user_avatars/follower_avatar_6.png`
-  }
-];
+const users = userList.filter(user => user.followed).slice(1, 7);
+// getting users from the list that we follow and slice 6 of them to display
+// 1 to exclude 0 -- Everyinteract
 
 function UserList() {
   const content = users.map(user => (
-    <Link to={user.nickname} title={user.name}>
-      <Icon src={user.src} alt={user.name} />
+    <Link key={user.id} to={user.nickname}>
+      <Icon src={user.avatar} alt={user.name} />
     </Link>
   ));
-  return <React.Fragment>{content}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {content}
+    </React.Fragment>
+  );
 }
 
-export default function() {
+export default function ({ userData }) {
   return (
     <Users>
       <Title>
         <FollowerIcon src={followersIcon} />
-        <Text to="/followers_you_follow">6 Followers you know</Text>
+        <Text to={`/${userData.nickname}/followers_you_follow`}>
+6 Followers you know
+        </Text>
       </Title>
       <CommonUsers>
         <UserList users={users} />

@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { Grid, Col, Row } from "react-flexbox-grid";
-import { Button } from "./Button";
-import iconMore from "./icons/more.png";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { Grid, Col, Row } from 'react-flexbox-grid';
+import Button from './Button';
+import iconMore from './icons/more.png';
 
 const MenuNav = styled.div`
   padding-top: 9px;
@@ -21,6 +21,7 @@ const More = styled.div`
   width: 14px;
   height: 14px;
   display: inline-block;
+  margin-left: 8px;
 `;
 
 const Statistics = styled.ul`
@@ -48,7 +49,6 @@ const StyledLink = styled(NavLink)`
   padding: 0 11px 8px;
   border-bottom: 2px solid #fff;
   text-align: center;
-
   &:hover {
     border-bottom: 2px solid #1da1f2;
   }
@@ -63,41 +63,78 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const Menu = () => (
+const Avatar = styled.img`
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 172px;
+  width: 172px;
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  top: 260px;
+`;
+
+export default ({ userData }) => (
   <MenuNav>
     <Grid>
       <Row>
-        <Col sm={6} smOffset={3}>
+        <Col sm={3}>
+          <Avatar src={userData.avatar} />
+        </Col>
+        <Col sm={6}>
           <Statistics>
-            <StyledLink to="/EveryInteraction" exact={true}>
-              <Name>Tweets</Name>
-              <Count>8,058</Count>
+            <StyledLink exact to={`/${userData.nickname}`}>
+              <Name>
+Tweets
+              </Name>
+              <Count>
+8,058
+              </Count>
             </StyledLink>
 
-            <StyledLink to="/following">
-              <Name>Following</Name>
-              <Count>721</Count>
+            <StyledLink exact to={`/${userData.nickname}/following`}>
+              <Name>
+Following
+              </Name>
+              <Count>
+721
+              </Count>
             </StyledLink>
 
-            <StyledLink to="/followers">
-              <Name>Followers</Name>
-              <Count>1,815</Count>
+            <StyledLink exact to={`/${userData.nickname}/followers`}>
+              <Name>
+Followers
+              </Name>
+              <Count>
+1,815
+              </Count>
             </StyledLink>
 
-            <StyledLink to="/likes">
-              <Name>Likes</Name>
-              <Count>460</Count>
+            <StyledLink exact to={`/${userData.nickname}/likes`}>
+              <Name>
+Likes
+              </Name>
+              <Count>
+460
+              </Count>
             </StyledLink>
 
-            <StyledLink to="/lists">
-              <Name>Lists</Name>
-              <Count>2</Count>
+            <StyledLink to={`/${userData.nickname}/lists`}>
+              <Name>
+Lists
+              </Name>
+              <Count>
+2
+              </Count>
             </StyledLink>
           </Statistics>
         </Col>
         <Col sm={3}>
           <FollowNav>
-            <Button>Follow</Button>
+            <Button>
+Follow
+            </Button>
             <More />
           </FollowNav>
         </Col>
